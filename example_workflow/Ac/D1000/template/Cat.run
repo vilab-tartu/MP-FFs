@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#SBATCH --job-name TFSI-long
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 32
+#SBATCH -t 10:59:00
+
+module load gromacs/5.1.4
+module load openmpi-1.6.5
+
+gmx mdrun -ntmpi 32 -pin on -deffnm Cat -table table
+
+
+
