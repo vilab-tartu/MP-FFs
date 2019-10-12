@@ -1,0 +1,58 @@
+### Melting point estimation workflow ###
+
+# Initialization #
+The workflow is done on Choline Acetate example. It is located in the Ac folder, D1000 subfolder
+The worflow is initialized by filling in the 1.sh, 2.sh, 3.sh, 4.sh scripts and gathering force fields in the template/top folder.
+
+The variables in the sh script to be changed: ion names, ion lengths (number of atoms), ionic pair molecular weight (g/mol), initial package density (kg/dm3)
+D1000 in the example folder name indicates the initial package density is 1.0 kg/dm3
+
+The force fields should be appropriately named and placed in the top folder.
+
+
+# Production #
+After initialization, the sh scripts are run in succession: 1.sh, 2.sh, 3.sh, 4.sh
+These script will call upon other scripts and programs, e.g. packmol to pack the initial system, wells script to first calculate system size and later to add potential wells,
+unwells script to remove potential wells, GROMACS to create MD input files, and corresponding run files (1.run, 2.run, 3.run, 4.run).
+
+These run files are configured to submit the MD input files and launch MD simulations in the SLURM high performance computing environment.
+In principle, all code (except headers and module loading) can be copied into sh scripts or other HPC environment submit file templates to carry out simulations in any environment.
+
+Example results are shown in NaCl_333 and CsCl_332 folders.
+
+
+# Analysis #
+analyze_traj.py script analyzes the trajectories and creates figures with D/T dependencies with regression fits of solid and liquid phase regions.
+msd.sh script is used by analye_traj.py script to calculate mean square deviations and diffusion coefficients during simulations using GROMACS.
+
+Required initializon: root path of results to analyze, lists of systems to analyze (anion names, initial packing densities, subsystems such as NaCl_333, CsCl_332, reference melting points).
+If analysis is run for some systems for multiple times, then it is wise to comment out the line that calls for msd.sh script with os.system module.
+
+Example is shown with Choline Acetate, NaCl_333 and CsCl_332 systems with D1000 initial packing density (1.0 kg/dm3). 
+
+Outputs include: 1p (shows anion name, predicted MP (K), average of predictions for different systems among the same anion(K))
+1psys (shows the system which was used for the final MP prediction, i.e. the system with highes MP that had sufficient regression fits, etc)
+lntemp folder contains D/T fit graphs of all systems
+lnpub folder contains D/T fits of the systems that were used for final MP prediction
+
+
+# Charges #
+In current work, charges were scaled between identical melting point estimation workflows. I.e. all previous steps were done with DFT charges, then charges were scaled and workflow restarted.
+Initial charges were obtained from DFT simulation of single ions in vacuum, so charges were simply pasted into ITP files without any additional scripts.
+Then the systems packed and simulated with the DFT charges were taken as input for GN2-xTB calculations.
+
+Charge scaling workflow is as follows:
+
+A sufficiently large system pdb file is required. E.g. simulation snapshots from the melting point estimation workflow
+The scripts are initialized, e.g. xtb path, cation length if anything other than choline is used, anion name, subsystems of anion (e.g. NaCl_333).
+The pdb2xyz.py script is used to generate an xyz files from pdb-s. charges_calculation script calls GFN2-xTB calculations and charges_assign.py script calculates averaged atomic charges.
+
+The obtained charges are by deafult in Ch_Anion folder. They are to be substituted into itp force fields of corresponding ions and used within a new melting point determination workflow.
+The example files are for Choline Acetate charge calculation.
+
+
+
+
+
+
+
