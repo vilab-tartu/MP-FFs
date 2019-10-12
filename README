@@ -1,5 +1,5 @@
-Force fields used in: Predicting melting points of biofriendly choline-based ionic liquids with molecular dynamics
-
+Force fields of biofriendly IL ions and an example melting point estimation workflow
+The example workflow description is in ./example_workflow/README
 
 The abbreviations are as follows:
 Ace - Acesulfamate
