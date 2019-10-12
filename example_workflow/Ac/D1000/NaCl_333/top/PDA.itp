@@ -1,0 +1,15 @@
+
+[ moleculetype ]
+; name  nrexcl
+PDA	 3
+
+
+
+[ atoms ]
+;   nr	 type  resnr residu   atom   cgnr     charge	mass
+     1	  PDA      1    PDA     PDA    1       1.000	 0 
+    
+[ position_restraints ]
+; ai  funct  fcx    fcy    fcz
+   1    1    1000   1000   1000   ; restrains to a point
+

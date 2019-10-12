@@ -1,0 +1,3411 @@
+Log file opened on Mon Jul  9 20:26:24 2018
+Host: klots7  pid: 23693  rank ID: 0  number of ranks:  1
+                   :-) GROMACS - gmx mdrun, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1.4
+Executable:   /storage/software/gromacs-5.1.4/bin/gmx
+Data prefix:  /storage/software/gromacs-5.1.4
+Command line:
+  gmx mdrun -ntmpi 32 -pin on -deffnm Cat -table table
+
+GROMACS version:    VERSION 5.1.4
+Precision:          single
+Memory model:       64 bit
+MPI library:        thread_mpi
+OpenMP support:     enabled (GMX_OPENMP_MAX_THREADS = 32)
+GPU support:        disabled
+OpenCL support:     disabled
+invsqrt routine:    gmx_software_invsqrt(x)
+SIMD instructions:  AVX_256
+FFT library:        fftw-3.3.4-sse2-avx
+RDTSCP usage:       enabled
+C++11 compilation:  enabled
+TNG support:        enabled
+Tracing support:    disabled
+Built on:           Fri Oct 20 14:04:08 EEST 2017
+Built by:           root@stage1 [CMAKE]
+Build OS/arch:      Linux 3.10.0-514.21.2.el7.x86_64 x86_64
+Build CPU vendor:   GenuineIntel
+Build CPU brand:    Intel(R) Xeon(R) CPU E5-2660 v2 @ 2.20GHz
+Build CPU family:   6   Model: 62   Stepping: 4
+Build CPU features: aes apic avx clfsh cmov cx8 cx16 f16c htt lahf_lm mmx msr nonstop_tsc pcid pclmuldq pdcm pdpe1gb popcnt pse rdrnd rdtscp sse2 sse3 sse4.1 sse4.2 ssse3 tdt x2apic
+C compiler:         /usr/bin/cc GNU 4.8.5
+C compiler flags:    -mavx    -Wundef -Wextra -Wno-missing-field-initializers -Wno-sign-compare -Wpointer-arith -Wall -Wno-unused -Wunused-value -Wunused-parameter  -O3 -DNDEBUG -funroll-all-loops -fexcess-precision=fast  -Wno-array-bounds 
+C++ compiler:       /usr/bin/c++ GNU 4.8.5
+C++ compiler flags:  -mavx   -std=c++0x  -Wundef -Wextra -Wno-missing-field-initializers -Wpointer-arith -Wall -Wno-unused-function  -O3 -DNDEBUG -funroll-all-loops -fexcess-precision=fast  -Wno-array-bounds 
+Boost version:      1.53.0 (external)
+
+
+Running on 1 node with total 32 cores, 32 logical cores
+Hardware detected:
+  CPU info:
+    Vendor: AuthenticAMD
+    Brand:  AMD Opteron(TM) Processor 6276                 
+    Family: 21  model:  1  stepping:  2
+    CPU features: aes apic avx clfsh cmov cx8 cx16 fma4 htt lahf_lm misalignsse mmx msr nonstop_tsc pclmuldq pdpe1gb popcnt pse rdtscp sse2 sse3 sse4a sse4.1 sse4.2 ssse3 xop
+    SIMD instructions most likely to fit this hardware: AVX_256
+    SIMD instructions selected at GROMACS compile time: AVX_256
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+M. J. Abraham, T. Murtola, R. Schulz, S. Páll, J. C. Smith, B. Hess, E.
+Lindahl
+GROMACS: High performance molecular simulations through multi-level
+parallelism from laptops to supercomputers
+SoftwareX 1 (2015) pp. 19-25
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Páll, M. J. Abraham, C. Kutzner, B. Hess, E. Lindahl
+Tackling Exascale Software Challenges in Molecular Dynamics Simulations with
+GROMACS
+In S. Markidis & E. Laure (Eds.), Solving Software Challenges for Exascale 8759 (2015) pp. 3-27
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+S. Pronk, S. Páll, R. Schulz, P. Larsson, P. Bjelkmar, R. Apostolov, M. R.
+Shirts, J. C. Smith, P. M. Kasson, D. van der Spoel, B. Hess, and E. Lindahl
+GROMACS 4.5: a high-throughput and highly parallel open source molecular
+simulation toolkit
+Bioinformatics 29 (2013) pp. 845-54
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+B. Hess and C. Kutzner and D. van der Spoel and E. Lindahl
+GROMACS 4: Algorithms for highly efficient, load-balanced, and scalable
+molecular simulation
+J. Chem. Theory Comput. 4 (2008) pp. 435-447
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+D. van der Spoel, E. Lindahl, B. Hess, G. Groenhof, A. E. Mark and H. J. C.
+Berendsen
+GROMACS: Fast, Flexible and Free
+J. Comp. Chem. 26 (2005) pp. 1701-1719
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+E. Lindahl and B. Hess and D. van der Spoel
+GROMACS 3.0: A package for molecular simulation and trajectory analysis
+J. Mol. Mod. 7 (2001) pp. 306-317
+-------- -------- --- Thank You --- -------- --------
+
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+H. J. C. Berendsen, D. van der Spoel and R. van Drunen
+GROMACS: A message-passing parallel molecular dynamics implementation
+Comp. Phys. Comm. 91 (1995) pp. 43-56
+-------- -------- --- Thank You --- -------- --------
+
+Input Parameters:
+   integrator                     = md
+   tinit                          = 0
+   dt                             = 0.0005
+   nsteps                         = 1000000
+   init-step                      = 0
+   simulation-part                = 1
+   comm-mode                      = Linear
+   nstcomm                        = 5000
+   bd-fric                        = 0
+   ld-seed                        = 3229433342
+   emtol                          = 10
+   emstep                         = 0.01
+   niter                          = 20
+   fcstep                         = 0
+   nstcgsteep                     = 1000
+   nbfgscorr                      = 10
+   rtpi                           = 0.05
+   nstxout                        = 0
+   nstvout                        = 0
+   nstfout                        = 0
+   nstlog                         = 5000
+   nstcalcenergy                  = 100
+   nstenergy                      = 5000
+   nstxout-compressed             = 5000
+   compressed-x-precision         = 1000
+   cutoff-scheme                  = Group
+   nstlist                        = 40
+   ns-type                        = Grid
+   pbc                            = xyz
+   periodic-molecules             = FALSE
+   verlet-buffer-tolerance        = 0.005
+   rlist                          = 1.3
+   rlistlong                      = 1.3
+   nstcalclr                      = 0
+   coulombtype                    = User
+   coulomb-modifier               = None
+   rcoulomb-switch                = 0
+   rcoulomb                       = 1.3
+   epsilon-r                      = 1.6
+   epsilon-rf                     = inf
+   vdw-type                       = Cut-off
+   vdw-modifier                   = None
+   rvdw-switch                    = 0
+   rvdw                           = 1.3
+   DispCorr                       = No
+   table-extension                = 1
+   fourierspacing                 = 0.12
+   fourier-nx                     = 0
+   fourier-ny                     = 0
+   fourier-nz                     = 0
+   pme-order                      = 4
+   ewald-rtol                     = 1e-05
+   ewald-rtol-lj                  = 0.001
+   lj-pme-comb-rule               = Geometric
+   ewald-geometry                 = 0
+   epsilon-surface                = 0
+   implicit-solvent               = No
+   gb-algorithm                   = Still
+   nstgbradii                     = 1
+   rgbradii                       = 1
+   gb-epsilon-solvent             = 80
+   gb-saltconc                    = 0
+   gb-obc-alpha                   = 1
+   gb-obc-beta                    = 0.8
+   gb-obc-gamma                   = 4.85
+   gb-dielectric-offset           = 0.009
+   sa-algorithm                   = Ace-approximation
+   sa-surface-tension             = 2.05016
+   tcoupl                         = V-rescale
+   nsttcouple                     = 40
+   nh-chain-length                = 0
+   print-nose-hoover-chain-variables = FALSE
+   pcoupl                         = No
+   pcoupltype                     = Isotropic
+   nstpcouple                     = -1
+   tau-p                          = 1
+   compressibility (3x3):
+      compressibility[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      compressibility[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   ref-p (3x3):
+      ref-p[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      ref-p[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   refcoord-scaling               = No
+   posres-com (3):
+      posres-com[0]= 0.00000e+00
+      posres-com[1]= 0.00000e+00
+      posres-com[2]= 0.00000e+00
+   posres-comB (3):
+      posres-comB[0]= 0.00000e+00
+      posres-comB[1]= 0.00000e+00
+      posres-comB[2]= 0.00000e+00
+   QMMM                           = FALSE
+   QMconstraints                  = 0
+   QMMMscheme                     = 0
+   MMChargeScaleFactor            = 1
+qm-opts:
+   ngQM                           = 0
+   constraint-algorithm           = Lincs
+   continuation                   = FALSE
+   Shake-SOR                      = FALSE
+   shake-tol                      = 0.0001
+   lincs-order                    = 4
+   lincs-iter                     = 1
+   lincs-warnangle                = 30
+   nwall                          = 0
+   wall-type                      = 9-3
+   wall-r-linpot                  = -1
+   wall-atomtype[0]               = -1
+   wall-atomtype[1]               = -1
+   wall-density[0]                = 0
+   wall-density[1]                = 0
+   wall-ewald-zfac                = 3
+   pull                           = FALSE
+   rotation                       = FALSE
+   interactiveMD                  = FALSE
+   disre                          = No
+   disre-weighting                = Conservative
+   disre-mixed                    = FALSE
+   dr-fc                          = 1000
+   dr-tau                         = 0
+   nstdisreout                    = 100
+   orire-fc                       = 0
+   orire-tau                      = 0
+   nstorireout                    = 100
+   free-energy                    = no
+   cos-acceleration               = 0
+   deform (3x3):
+      deform[    0]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    1]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+      deform[    2]={ 0.00000e+00,  0.00000e+00,  0.00000e+00}
+   simulated-tempering            = FALSE
+   E-x:
+      n = 0
+   E-xt:
+      n = 0
+   E-y:
+      n = 0
+   E-yt:
+      n = 0
+   E-z:
+      n = 0
+   E-zt:
+      n = 0
+   swapcoords                     = no
+   adress                         = FALSE
+   userint1                       = 0
+   userint2                       = 0
+   userint3                       = 0
+   userint4                       = 0
+   userreal1                      = 0
+   userreal2                      = 0
+   userreal3                      = 0
+   userreal4                      = 0
+grpopts:
+   nrdf:     6801.75     2267.25           0           0
+   ref-t:         600           1           0           0
+   tau-t:         0.5           0           0           0
+annealing:      Single          No          No          No
+annealing-npoints:           3           0           0           0
+annealing-time [0]:	         0.0       100.0       500.0
+annealing-temp [0]:	       600.0       600.0         1.0
+   acc:	           0           0           0
+   nfreeze:           N           Y           N           N           Y           N           N           N           N
+   energygrp-flags[  0]: 0 0 2 2
+   energygrp-flags[  1]: 0 0 2 2
+   energygrp-flags[  2]: 2 2 3 3
+   energygrp-flags[  3]: 2 2 3 3
+
+
+Initializing Domain Decomposition on 32 ranks
+Dynamic load balancing: auto
+Will sort the charge groups at every domain (re)decomposition
+Initial maximum inter charge-group distances:
+    two-body bonded interactions: 0.441 nm, LJ-14, atoms 2320 2327
+  multi-body bonded interactions: 0.441 nm, Ryckaert-Bell., atoms 2320 2327
+Minimum cell size due to bonded interactions: 0.485 nm
+Scaling the initial minimum size with 1/0.8 (option -dds) = 1.25
+Optimizing the DD grid for 32 cells with a minimum initial size of 0.607 nm
+The maximum allowed number of cells is: X 5 Y 5 Z 5
+Domain decomposition grid 4 x 4 x 2, separate PME ranks 0
+Domain decomposition rank 0, coordinates 0 0 0
+
+Using 32 MPI threads
+
+
+NOTE: This file uses the deprecated 'group' cutoff_scheme. This will be
+removed in a future release when 'verlet' supports all interaction forms.
+
+Table routines are used for coulomb: TRUE
+Table routines are used for vdw:     FALSE
+Cut-off's:   NS: 1.3   Coulomb: 1.3   LJ: 1.3
+System total charge: 0.043
+Read user tables from table.xvg with 2251 data points.
+Tabscale = 500 points/nm
+Generated table with 1150 data points for LJ6.
+Tabscale = 500 points/nm
+Generated table with 1150 data points for LJ12.
+Tabscale = 500 points/nm
+Read user tables from table_Ch_PDA.xvg with 2251 data points.
+Tabscale = 500 points/nm
+
+WARNING: For the 648 non-zero entries for table 0 in table_Ch_PDA.xvg the forces deviate on average 62% from minus the numerical derivative of the potential
+
+Generated table with 1150 data points for LJ6.
+Tabscale = 500 points/nm
+Generated table with 1150 data points for LJ12.
+Tabscale = 500 points/nm
+Read user tables from table_Ch_NDA.xvg with 2251 data points.
+Tabscale = 500 points/nm
+
+WARNING: For the 648 non-zero entries for table 0 in table_Ch_NDA.xvg the forces deviate on average 62% from minus the numerical derivative of the potential
+
+Generated table with 1150 data points for LJ6.
+Tabscale = 500 points/nm
+Generated table with 1150 data points for LJ12.
+Tabscale = 500 points/nm
+Read user tables from table_Ac_PDA.xvg with 2251 data points.
+Tabscale = 500 points/nm
+
+WARNING: For the 648 non-zero entries for table 0 in table_Ac_PDA.xvg the forces deviate on average 62% from minus the numerical derivative of the potential
+
+Generated table with 1150 data points for LJ6.
+Tabscale = 500 points/nm
+Generated table with 1150 data points for LJ12.
+Tabscale = 500 points/nm
+Read user tables from table_Ac_NDA.xvg with 2251 data points.
+Tabscale = 500 points/nm
+
+WARNING: For the 648 non-zero entries for table 0 in table_Ac_NDA.xvg the forces deviate on average 62% from minus the numerical derivative of the potential
+
+Generated table with 1150 data points for LJ6.
+Tabscale = 500 points/nm
+Generated table with 1150 data points for LJ12.
+Tabscale = 500 points/nm
+Read user tables from Cat.xvg with 2251 data points.
+Tabscale = 500 points/nm
+Generated table with 2251 data points for 1-4 LJ6.
+Tabscale = 500 points/nm
+Generated table with 2251 data points for 1-4 LJ12.
+Tabscale = 500 points/nm
+Potential shift: LJ r^-12: 0.000e+00 r^-6: 0.000e+00
+Removing pbc first time
+Pinning threads with an auto-selected logical core stride of 1
+
+Linking all bonded interactions to atoms
+
+The initial number of communication pulses is: X 2 Y 2 Z 1
+The initial domain decomposition cell size is: X 0.77 nm Y 0.77 nm Z 1.54 nm
+
+The maximum allowed distance for charge groups involved in interactions is:
+                 non-bonded interactions           1.300 nm
+            two-body bonded interactions  (-rdd)   1.300 nm
+          multi-body bonded interactions  (-rdd)   0.770 nm
+
+When dynamic load balancing gets turned on, these settings will change to:
+The maximum number of communication pulses is: X 3 Y 3 Z 1
+The minimum size for domain decomposition cells is 0.606 nm
+The requested allowed shrink of DD cells (option -dds) is: 0.80
+The allowed shrink of domain decomposition cells is: X 0.79 Y 0.79 Z 0.84
+The maximum allowed distance for charge groups involved in interactions is:
+                 non-bonded interactions           1.300 nm
+            two-body bonded interactions  (-rdd)   1.300 nm
+          multi-body bonded interactions  (-rdd)   0.606 nm
+
+
+Making 3D domain decomposition grid 4 x 4 x 2, home cell index 0 0 0
+
+Center of mass motion removal mode is Linear
+We have the following groups for center of mass motion removal:
+  0:  rest
+
+++++ PLEASE READ AND CITE THE FOLLOWING REFERENCE ++++
+G. Bussi, D. Donadio and M. Parrinello
+Canonical sampling through velocity rescaling
+J. Chem. Phys. 126 (2007) pp. 014101
+-------- -------- --- Thank You --- -------- --------
+
+There are: 3024 Atoms
+There are: 216 VSites
+Atom distribution over 32 domains: av 101 stddev 11 min 82 max 118
+Grid: 6 x 6 x 6 cells
+Initial temperature: 26.1927 K
+
+Started mdrun on rank 0 Mon Jul  9 20:26:24 2018
+           Step           Time         Lambda
+              0        0.00000        0.00000
+
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.93864e+02    5.99331e+02    3.09887e+01   -1.01647e+04    1.26897e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25764e+03   -8.12516e+03   -4.83196e+04    0.00000e+00   -6.56739e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.90085e+02   -6.46839e+04   -6.46839e+04    2.62609e+01   -5.52109e+04
+
+DD  step 39 load imb.: force 10.2%
+
+At step 40 the performance loss due to force load imbalance is 7.0 %
+
+NOTE: Turning on dynamic load balancing
+
+DD  step 4999  vol min/aver 0.708  load imb.: force  7.0%
+
+           Step           Time         Lambda
+           5000        2.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.79129e+03    5.48893e+03    7.22953e+00   -8.53254e+03    1.87548e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26263e+03   -7.03760e+03   -4.81859e+04    0.00000e+00   -5.28557e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.40543e+04   -3.88015e+04   -5.71874e+04    3.72773e+02   -5.32150e+04
+
+DD  step 9999  vol min/aver 0.805  load imb.: force  8.8%
+
+           Step           Time         Lambda
+          10000        5.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.49056e+03    6.11378e+03    8.27622e+00   -8.33479e+03    1.85175e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25951e+03   -7.18468e+03   -4.74689e+04    0.00000e+00   -5.07835e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.55824e+04   -3.52011e+04   -4.84524e+04    4.13306e+02   -5.36059e+04
+
+DD  step 14999  vol min/aver 0.761  load imb.: force  3.3%
+
+           Step           Time         Lambda
+          15000        7.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.04405e+03    6.57994e+03    7.23683e+00   -8.35501e+03    1.84951e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25246e+03   -7.12583e+03   -4.79288e+04    0.00000e+00   -5.01813e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.63073e+04   -3.38741e+04   -4.03715e+04    4.32531e+02   -5.16571e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 19999  vol min/aver 0.815! load imb.: force  4.6%
+
+           Step           Time         Lambda
+          20000       10.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.35273e+03    6.42943e+03    6.89470e+00   -8.33685e+03    1.88972e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25710e+03   -7.19769e+03   -4.79924e+04    0.00000e+00   -5.01052e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.64658e+04   -3.36394e+04   -3.23486e+04    4.36736e+02   -5.29190e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 24999  vol min/aver 0.787! load imb.: force  6.9%
+
+           Step           Time         Lambda
+          25000       12.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.18692e+03    6.15311e+03    7.82360e+00   -8.47483e+03    2.01493e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25552e+03   -7.10903e+03   -4.79442e+04    0.00000e+00   -5.04208e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.60528e+04   -3.43680e+04   -2.36897e+04    4.25782e+02   -5.30362e+04
+
+DD  step 29999  vol min/aver 0.809  load imb.: force  8.9%
+
+           Step           Time         Lambda
+          30000       15.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.76431e+03    6.18834e+03    8.73138e+00   -8.44896e+03    1.99298e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25712e+03   -7.16804e+03   -4.79000e+04    0.00000e+00   -4.98197e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.63447e+04   -3.34750e+04   -1.48143e+04    4.33525e+02   -5.10628e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 34999  vol min/aver 0.774! load imb.: force  9.0%
+
+           Step           Time         Lambda
+          35000       17.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.59936e+03    6.12650e+03    6.89036e+00   -8.30370e+03    1.91614e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25746e+03   -7.33166e+03   -4.73719e+04    0.00000e+00   -4.96158e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.66899e+04   -3.29259e+04   -6.00580e+03    4.42679e+02   -5.11268e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 39999  vol min/aver 0.832! load imb.: force  5.9%
+
+           Step           Time         Lambda
+          40000       20.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.98347e+03    5.95162e+03    6.43880e+00   -8.49057e+03    1.93431e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25931e+03   -7.23273e+03   -4.73433e+04    0.00000e+00   -4.94501e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.60702e+04   -3.33799e+04    2.00495e+03    4.26243e+02   -5.47410e+04
+
+DD  step 44999  vol min/aver 0.832  load imb.: force  8.8%
+
+           Step           Time         Lambda
+          45000       22.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.87296e+03    6.08555e+03    5.85381e+00   -8.53952e+03    1.84963e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26101e+03   -7.33204e+03   -4.76301e+04    0.00000e+00   -4.99487e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.70886e+04   -3.28601e+04    9.39664e+03    4.53256e+02   -5.40461e+04
+
+DD  step 49999  vol min/aver 0.818  load imb.: force  3.2%
+
+           Step           Time         Lambda
+          50000       25.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.80286e+03    6.10169e+03    5.61468e+00   -8.53474e+03    1.89844e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25977e+03   -7.15520e+03   -4.76214e+04    0.00000e+00   -4.87625e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.60032e+04   -3.27593e+04    1.77091e+04    4.24467e+02   -5.28661e+04
+
+DD  step 54999  vol min/aver 0.807  load imb.: force  7.7%
+
+           Step           Time         Lambda
+          55000       27.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.50350e+03    5.72932e+03    7.63624e+00   -8.52701e+03    1.82255e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26267e+03   -7.38095e+03   -4.73124e+04    0.00000e+00   -4.94200e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.64074e+04   -3.30126e+04    2.63055e+04    4.35188e+02   -5.44014e+04
+
+DD  step 59999  vol min/aver 0.822  load imb.: force  5.4%
+
+           Step           Time         Lambda
+          60000       30.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.11306e+03    5.56692e+03    7.24062e+00   -8.69034e+03    1.81769e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25732e+03   -7.41908e+03   -4.76197e+04    0.00000e+00   -4.94816e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.60642e+04   -3.34173e+04    3.40084e+04    4.26085e+02   -5.57014e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 64999  vol min/aver 0.784! load imb.: force  4.4%
+
+           Step           Time         Lambda
+          65000       32.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.78065e+03    5.37182e+03    6.57111e+00   -8.54519e+03    1.84355e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25695e+03   -7.39027e+03   -4.72009e+04    0.00000e+00   -4.93907e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.64649e+04   -3.29258e+04    4.23506e+04    4.36714e+02   -5.42126e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 69999  vol min/aver 0.792! load imb.: force  9.1%
+
+           Step           Time         Lambda
+          70000       35.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.81990e+03    5.84498e+03    6.21706e+00   -8.58468e+03    1.90087e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25712e+03   -7.34588e+03   -4.68110e+04    0.00000e+00   -4.84267e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.67659e+04   -3.16609e+04    5.02987e+04    4.44695e+02   -5.52382e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 74999  vol min/aver 0.816! load imb.: force 11.1%
+
+           Step           Time         Lambda
+          75000       37.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.52685e+03    5.57588e+03    7.37705e+00   -8.60683e+03    1.82998e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26210e+03   -7.37267e+03   -4.72664e+04    0.00000e+00   -4.95679e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.74764e+04   -3.20914e+04    5.77013e+04    4.63542e+02   -5.37635e+04
+
+DD  step 79999  vol min/aver 0.796  load imb.: force  6.8%
+
+           Step           Time         Lambda
+          80000       40.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.74102e+03    5.59121e+03    7.82744e+00   -8.57073e+03    1.83068e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26374e+03   -7.27178e+03   -4.69481e+04    0.00000e+00   -4.78836e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.63189e+04   -3.15647e+04    6.55145e+04    4.32839e+02   -5.37763e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 84999  vol min/aver 0.824! load imb.: force  4.7%
+
+           Step           Time         Lambda
+          85000       42.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.19391e+03    5.40336e+03    6.59530e+00   -8.70815e+03    1.92320e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25844e+03   -7.46447e+03   -4.73319e+04    0.00000e+00   -4.92359e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.60724e+04   -3.31635e+04    7.24242e+04    4.26302e+02   -5.13002e+04
+
+DD  step 89999  vol min/aver 0.754  load imb.: force  8.6%
+
+           Step           Time         Lambda
+          90000       45.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.09907e+03    5.21769e+03    6.34679e+00   -8.74924e+03    1.92465e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25983e+03   -7.35613e+03   -4.79221e+04    0.00000e+00   -4.90396e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.59772e+04   -3.30624e+04    7.95418e+04    4.23776e+02   -5.43531e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 94999  vol min/aver 0.863! load imb.: force  4.3%
+
+           Step           Time         Lambda
+          95000       47.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.93328e+03    5.41966e+03    7.38398e+00   -8.64397e+03    1.81660e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26156e+03   -7.41239e+03   -4.74906e+04    0.00000e+00   -4.96316e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.74022e+04   -3.22294e+04    8.80297e+04    4.61572e+02   -5.48317e+04
+
+DD  step 99999  vol min/aver 0.824  load imb.: force  7.4%
+
+           Step           Time         Lambda
+         100000       50.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.34097e+03    5.47367e+03    6.78903e+00   -8.64589e+03    1.87881e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25263e+03   -7.47434e+03   -4.70708e+04    0.00000e+00   -4.87434e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.73641e+04   -3.13793e+04    9.64747e+04    4.60563e+02   -5.33490e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 104999  vol min/aver 0.791! load imb.: force  6.1%
+
+           Step           Time         Lambda
+         105000       52.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.01355e+03    5.20609e+03    6.32889e+00   -8.80232e+03    1.74992e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26168e+03   -7.39677e+03   -4.75818e+04    0.00000e+00   -4.90667e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.73332e+04   -3.17335e+04    1.04262e+05    4.59742e+02   -5.75390e+04
+
+DD  step 109999  vol min/aver 0.822  load imb.: force  6.1%
+
+           Step           Time         Lambda
+         110000       55.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.43771e+03    5.16517e+03    6.68912e+00   -8.70511e+03    1.84673e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26056e+03   -7.40827e+03   -4.70465e+04    0.00000e+00   -4.79641e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.61394e+04   -3.18247e+04    1.12685e+05    4.28080e+02   -5.45767e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 114999  vol min/aver 0.808! load imb.: force 10.8%
+
+           Step           Time         Lambda
+         115000       57.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.34077e+03    5.02051e+03    7.23963e+00   -8.90547e+03    1.81532e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26072e+03   -7.29899e+03   -4.70907e+04    0.00000e+00   -4.93721e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.72549e+04   -3.21172e+04    1.20045e+05    4.57666e+02   -5.31592e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 119999  vol min/aver 0.845! load imb.: force 10.6%
+
+           Step           Time         Lambda
+         120000       60.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.11756e+03    4.99964e+03    4.20366e+00   -8.73954e+03    1.80460e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25551e+03   -7.38610e+03   -4.71138e+04    0.00000e+00   -4.85690e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.65282e+04   -3.20408e+04    1.27802e+05    4.38391e+02   -5.53459e+04
+
+DD  step 124999  vol min/aver 0.849  load imb.: force  4.6%
+
+           Step           Time         Lambda
+         125000       62.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.80355e+03    4.92020e+03    5.81051e+00   -8.86006e+03    1.80629e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26338e+03   -7.48868e+03   -4.76158e+04    0.00000e+00   -4.96921e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.66121e+04   -3.30799e+04    1.34848e+05    4.40617e+02   -5.42064e+04
+
+DD  step 129999  vol min/aver 0.817  load imb.: force  4.9%
+
+           Step           Time         Lambda
+         130000       65.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.92133e+03    4.94334e+03    5.94030e+00   -8.81121e+03    1.77567e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25468e+03   -7.55424e+03   -4.69437e+04    0.00000e+00   -4.79176e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.66418e+04   -3.12758e+04    1.43233e+05    4.41404e+02   -5.38796e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 134999  vol min/aver 0.813! load imb.: force  7.3%
+
+           Step           Time         Lambda
+         135000       67.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.57013e+03    5.05250e+03    6.02650e+00   -8.79501e+03    1.81835e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25487e+03   -7.43911e+03   -4.65996e+04    0.00000e+00   -4.86416e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.68637e+04   -3.17779e+04    1.51477e+05    4.47290e+02   -5.05657e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 139999  vol min/aver 0.781! load imb.: force  8.3%
+
+           Step           Time         Lambda
+         140000       70.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.94392e+03    4.96923e+03    5.31328e+00   -8.80881e+03    1.86684e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25993e+03   -7.41103e+03   -4.78381e+04    0.00000e+00   -5.05326e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.73314e+04   -3.32012e+04    1.57362e+05    4.59694e+02   -5.45171e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 144999  vol min/aver 0.808! load imb.: force  5.8%
+
+           Step           Time         Lambda
+         145000       72.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.88348e+03    5.01736e+03    5.66230e+00   -8.75895e+03    1.74970e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25771e+03   -7.58071e+03   -4.68367e+04    0.00000e+00   -4.77779e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.65260e+04   -3.12518e+04    1.66615e+05    4.38334e+02   -5.62225e+04
+
+DD  step 149999  vol min/aver 0.809  load imb.: force  7.0%
+
+           Step           Time         Lambda
+         150000       75.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.21494e+03    4.76722e+03    7.02355e+00   -8.90478e+03    1.72025e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26247e+03   -7.50658e+03   -4.70648e+04    0.00000e+00   -4.90292e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.65964e+04   -3.24328e+04    1.74208e+05    4.40200e+02   -5.47545e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 154999  vol min/aver 0.812! load imb.: force  5.2%
+
+           Step           Time         Lambda
+         155000       77.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.96838e+03    4.95141e+03    6.41241e+00   -8.65974e+03    1.77677e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26013e+03   -7.45048e+03   -4.69323e+04    0.00000e+00   -4.85997e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.77085e+04   -3.08911e+04    1.82228e+05    4.69699e+02   -5.25560e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 159999  vol min/aver 0.753! load imb.: force 10.0%
+
+           Step           Time         Lambda
+         160000       80.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.00937e+03    4.90802e+03    5.46860e+00   -8.85686e+03    1.76729e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25973e+03   -7.53011e+03   -4.70429e+04    0.00000e+00   -4.89994e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.77271e+04   -3.12723e+04    1.89927e+05    4.70191e+02   -5.44478e+04
+
+DD  step 164999  vol min/aver 0.856  load imb.: force  8.4%
+
+           Step           Time         Lambda
+         165000       82.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.54519e+03    4.75599e+03    5.75434e+00   -8.85909e+03    1.79728e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25886e+03   -7.47195e+03   -4.72779e+04    0.00000e+00   -4.97635e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.75476e+04   -3.22160e+04    1.97024e+05    4.65429e+02   -5.22025e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 169999  vol min/aver 0.800! load imb.: force  5.8%
+
+           Step           Time         Lambda
+         170000       85.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.16413e+03    4.94576e+03    7.85831e+00   -8.77160e+03    1.79887e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25931e+03   -7.42791e+03   -4.70369e+04    0.00000e+00   -4.85791e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.67881e+04   -3.17910e+04    2.05382e+05    4.45285e+02   -5.38702e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 174999  vol min/aver 0.813! load imb.: force  6.3%
+
+           Step           Time         Lambda
+         175000       87.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.39268e+03    4.65716e+03    6.03334e+00   -8.81188e+03    1.82118e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25807e+03   -7.40881e+03   -4.72007e+04    0.00000e+00   -4.88024e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.61792e+04   -3.26233e+04    2.12745e+05    4.29134e+02   -5.32534e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 179999  vol min/aver 0.765! load imb.: force 10.1%
+
+           Step           Time         Lambda
+         180000       90.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.75793e+03    4.84235e+03    5.11440e+00   -8.82835e+03    1.85934e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26068e+03   -7.46089e+03   -4.71740e+04    0.00000e+00   -4.92592e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.70232e+04   -3.22360e+04    2.20489e+05    4.51522e+02   -5.16468e+04
+
+DD  step 184999  vol min/aver 0.796  load imb.: force  9.1%
+
+           Step           Time         Lambda
+         185000       92.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.79090e+03    4.85911e+03    6.12467e+00   -8.79138e+03    1.81741e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25518e+03   -7.42015e+03   -4.69528e+04    0.00000e+00   -4.89460e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.69407e+04   -3.20052e+04    2.28339e+05    4.49333e+02   -4.98338e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 189999  vol min/aver 0.716! load imb.: force  7.8%
+
+           Step           Time         Lambda
+         190000       95.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.00018e+04    5.08807e+03    5.36721e+00   -8.77154e+03    1.78440e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25548e+03   -7.48741e+03   -4.75717e+04    0.00000e+00   -4.82065e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.64983e+04   -3.17082e+04    2.35259e+05    4.37598e+02   -5.36346e+04
+
+DD  step 194999  vol min/aver 0.788  load imb.: force  6.5%
+
+           Step           Time         Lambda
+         195000       97.50000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.55018e+03    5.09077e+03    5.21052e+00   -8.74322e+03    1.78608e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25376e+03   -7.44396e+03   -4.70646e+04    0.00000e+00   -4.90733e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.76308e+04   -3.14425e+04    2.43651e+05    4.67636e+02   -5.42212e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 199999  vol min/aver 0.724! load imb.: force  7.2%
+
+           Step           Time         Lambda
+         200000      100.00000        0.00000
+
+Current ref_t for group Ch:    600.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.72221e+03    4.94541e+03    8.68729e+00   -8.77020e+03    1.75302e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25279e+03   -7.43507e+03   -4.75683e+04    0.00000e+00   -4.95970e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.78303e+04   -3.17667e+04    2.51127e+05    4.72929e+02   -5.38905e+04
+
+DD  step 204999  vol min/aver 0.749  load imb.: force  6.0%
+
+           Step           Time         Lambda
+         205000      102.50000        0.00000
+
+Current ref_t for group Ch:    596.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.94361e+03    4.99312e+03    7.90951e+00   -8.67442e+03    1.85270e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25666e+03   -7.48500e+03   -4.71438e+04    0.00000e+00   -4.87626e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.68900e+04   -3.18726e+04    2.59208e+05    4.47987e+02   -5.26988e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 209999  vol min/aver 0.859! load imb.: force 10.0%
+
+           Step           Time         Lambda
+         210000      105.00000        0.00000
+
+Current ref_t for group Ch:    592.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.68645e+03    4.92752e+03    5.15795e+00   -8.67081e+03    1.78773e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25640e+03   -7.43786e+03   -4.70852e+04    0.00000e+00   -4.80434e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.69176e+04   -3.11259e+04    2.66672e+05    4.48719e+02   -5.38350e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 214999  vol min/aver 0.799! load imb.: force  7.1%
+
+           Step           Time         Lambda
+         215000      107.50000        0.00000
+
+Current ref_t for group Ch:    588.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.94485e+03    4.95482e+03    5.67300e+00   -8.91710e+03    1.87402e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25464e+03   -7.45383e+03   -4.77739e+04    0.00000e+00   -5.06201e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.77207e+04   -3.28994e+04    2.74055e+05    4.70020e+02   -5.47086e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 219999  vol min/aver 0.790! load imb.: force  6.7%
+
+           Step           Time         Lambda
+         220000      110.00000        0.00000
+
+Current ref_t for group Ch:    585.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.55273e+03    4.97949e+03    5.38531e+00   -8.87324e+03    1.76687e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26242e+03   -7.42239e+03   -4.72069e+04    0.00000e+00   -4.84605e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.63920e+04   -3.20685e+04    2.82404e+05    4.34778e+02   -5.42922e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 224999  vol min/aver 0.782! load imb.: force  5.3%
+
+           Step           Time         Lambda
+         225000      112.50000        0.00000
+
+Current ref_t for group Ch:    581.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.87943e+03    5.01250e+03    6.03832e+00   -8.91950e+03    1.75746e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25993e+03   -7.48055e+03   -4.74178e+04    0.00000e+00   -4.94224e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.62346e+04   -3.31878e+04    2.89862e+05    4.30604e+02   -5.63576e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 229999  vol min/aver 0.751! load imb.: force  6.0%
+
+           Step           Time         Lambda
+         230000      115.00000        0.00000
+
+Current ref_t for group Ch:    577.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.96985e+03    4.75341e+03    5.61623e+00   -8.82100e+03    1.75998e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25476e+03   -7.58450e+03   -4.74659e+04    0.00000e+00   -4.96373e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.67775e+04   -3.28598e+04    2.97298e+05    4.45003e+02   -5.30551e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 234999  vol min/aver 0.824! load imb.: force  6.0%
+
+           Step           Time         Lambda
+         235000      117.50000        0.00000
+
+Current ref_t for group Ch:    573.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.35514e+03    4.81188e+03    5.57484e+00   -8.93856e+03    1.74130e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25894e+03   -7.52618e+03   -4.71969e+04    0.00000e+00   -5.00067e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.69469e+04   -3.30597e+04    3.04928e+05    4.49498e+02   -5.46314e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 239999  vol min/aver 0.806! load imb.: force  7.5%
+
+           Step           Time         Lambda
+         240000      120.00000        0.00000
+
+Current ref_t for group Ch:    570.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.38013e+03    4.81579e+03    6.44822e+00   -8.86981e+03    1.80089e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25264e+03   -7.53071e+03   -4.76011e+04    0.00000e+00   -5.02510e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.65063e+04   -3.37447e+04    3.11879e+05    4.37810e+02   -5.00708e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 244999  vol min/aver 0.769! load imb.: force  4.0%
+
+           Step           Time         Lambda
+         245000      122.50000        0.00000
+
+Current ref_t for group Ch:    566.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.44182e+03    4.72869e+03    5.15248e+00   -8.82259e+03    1.78883e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25269e+03   -7.52172e+03   -4.75688e+04    0.00000e+00   -4.92013e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.56505e+04   -3.35508e+04    3.19256e+05    4.15111e+02   -5.38715e+04
+
+DD  step 249999  vol min/aver 0.754  load imb.: force  7.6%
+
+           Step           Time         Lambda
+         250000      125.00000        0.00000
+
+Current ref_t for group Ch:    562.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.14703e+03    4.72822e+03    6.87720e+00   -8.85263e+03    1.85743e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25627e+03   -7.37093e+03   -4.71405e+04    0.00000e+00   -4.88808e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.60848e+04   -3.27960e+04    3.27365e+05    4.26631e+02   -5.44942e+04
+
+DD  step 254999  vol min/aver 0.733  load imb.: force  5.3%
+
+           Step           Time         Lambda
+         255000      127.50000        0.00000
+
+Current ref_t for group Ch:    558.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.63325e+03    4.57873e+03    6.49350e+00   -9.00835e+03    1.76114e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25842e+03   -7.57202e+03   -4.71992e+04    0.00000e+00   -5.00584e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.63360e+04   -3.37225e+04    3.35289e+05    4.33292e+02   -4.99846e+04
+
+DD  step 259999  vol min/aver 0.820  load imb.: force 15.6%
+
+           Step           Time         Lambda
+         260000      130.00000        0.00000
+
+Current ref_t for group Ch:    555.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.00297e+04    4.70885e+03    5.79092e+00   -8.90576e+03    1.79176e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25762e+03   -7.57835e+03   -4.68831e+04    0.00000e+00   -4.80888e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.48718e+04   -3.32170e+04    3.43025e+05    3.94457e+02   -5.61469e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 264999  vol min/aver 0.803! load imb.: force  5.1%
+
+           Step           Time         Lambda
+         265000      132.50000        0.00000
+
+Current ref_t for group Ch:    551.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.99443e+03    4.57630e+03    4.94981e+00   -8.91145e+03    1.76626e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26087e+03   -7.46915e+03   -4.72063e+04    0.00000e+00   -5.05058e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.59262e+04   -3.45796e+04    3.49865e+05    4.22423e+02   -5.49932e+04
+
+DD  step 269999  vol min/aver 0.801  load imb.: force  4.3%
+
+           Step           Time         Lambda
+         270000      135.00000        0.00000
+
+Current ref_t for group Ch:    547.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.07725e+03    4.71265e+03    4.82268e+00   -8.87512e+03    1.72570e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26244e+03   -7.55688e+03   -4.76956e+04    0.00000e+00   -4.98697e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.56975e+04   -3.41721e+04    3.57280e+05    4.16358e+02   -5.57378e+04
+
+DD  step 274999  vol min/aver 0.755  load imb.: force  4.1%
+
+           Step           Time         Lambda
+         275000      137.50000        0.00000
+
+Current ref_t for group Ch:    543.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.42534e+03    4.57909e+03    4.80787e+00   -8.92873e+03    1.74374e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25621e+03   -7.59873e+03   -4.70378e+04    0.00000e+00   -5.00685e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.61255e+04   -3.39429e+04    3.65677e+05    4.27711e+02   -5.46805e+04
+
+DD  step 279999  vol min/aver 0.762  load imb.: force  3.5%
+
+           Step           Time         Lambda
+         280000      140.00000        0.00000
+
+Current ref_t for group Ch:    540.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.44244e+03    4.52944e+03    4.69681e+00   -9.00899e+03    1.73104e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25535e+03   -7.56779e+03   -4.71119e+04    0.00000e+00   -5.02364e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.61551e+04   -3.40813e+04    3.73150e+05    4.28496e+02   -5.30216e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 284999  vol min/aver 0.817! load imb.: force  3.8%
+
+           Step           Time         Lambda
+         285000      142.50000        0.00000
+
+Current ref_t for group Ch:    536.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.88726e+03    4.52443e+03    6.14092e+00   -8.87744e+03    1.74013e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26105e+03   -7.52994e+03   -4.66883e+04    0.00000e+00   -4.91988e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.53514e+04   -3.38474e+04    3.80838e+05    4.07179e+02   -5.28870e+04
+
+DD  step 289999  vol min/aver 0.787  load imb.: force  3.5%
+
+           Step           Time         Lambda
+         290000      145.00000        0.00000
+
+Current ref_t for group Ch:    532.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.47718e+03    4.52577e+03    5.92620e+00   -8.94218e+03    1.77521e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25865e+03   -7.62763e+03   -4.70850e+04    0.00000e+00   -5.01294e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.49871e+04   -3.51423e+04    3.87822e+05    3.97517e+02   -5.54566e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 294999  vol min/aver 0.761! load imb.: force  5.3%
+
+           Step           Time         Lambda
+         295000      147.50000        0.00000
+
+Current ref_t for group Ch:    528.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.38208e+03    4.72042e+03    5.31625e+00   -8.90866e+03    1.69533e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25678e+03   -7.63172e+03   -4.72329e+04    0.00000e+00   -5.02270e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.53038e+04   -3.49232e+04    3.94988e+05    4.05915e+02   -5.17660e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 299999  vol min/aver 0.735! load imb.: force  3.9%
+
+           Step           Time         Lambda
+         300000      150.00000        0.00000
+
+Current ref_t for group Ch:    525.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.65619e+03    4.41432e+03    5.38497e+00   -9.01317e+03    1.72874e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25467e+03   -7.67694e+03   -4.70660e+04    0.00000e+00   -5.02062e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.46380e+04   -3.55682e+04    4.02475e+05    3.88255e+02   -5.32235e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 304999  vol min/aver 0.724! load imb.: force  6.0%
+
+           Step           Time         Lambda
+         305000      152.50000        0.00000
+
+Current ref_t for group Ch:    521.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.86423e+03    4.48860e+03    4.78596e+00   -8.97300e+03    1.72161e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26135e+03   -7.61984e+03   -4.71751e+04    0.00000e+00   -5.09500e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.50175e+04   -3.59326e+04    4.09366e+05    3.98321e+02   -5.47884e+04
+
+DD  step 309999  vol min/aver 0.813  load imb.: force  6.4%
+
+           Step           Time         Lambda
+         310000      155.00000        0.00000
+
+Current ref_t for group Ch:    517.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.66412e+03    4.86464e+03    6.51366e+00   -8.90420e+03    1.68421e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26288e+03   -7.53995e+03   -4.66957e+04    0.00000e+00   -5.01833e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.49385e+04   -3.52447e+04    4.17284e+05    3.96228e+02   -5.45031e+04
+
+DD  step 314999  vol min/aver 0.805  load imb.: force  6.6%
+
+           Step           Time         Lambda
+         315000      157.50000        0.00000
+
+Current ref_t for group Ch:    513.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.04913e+03    4.42841e+03    6.55016e+00   -8.92140e+03    1.71952e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25873e+03   -7.54815e+03   -4.68814e+04    0.00000e+00   -5.04061e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.49970e+04   -3.54090e+04    4.24444e+05    3.97779e+02   -5.19465e+04
+
+DD  step 319999  vol min/aver 0.763  load imb.: force  9.8%
+
+           Step           Time         Lambda
+         320000      160.00000        0.00000
+
+Current ref_t for group Ch:    510.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.56086e+03    4.54609e+03    5.48098e+00   -8.98112e+03    1.76004e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26021e+03   -7.66806e+03   -4.70080e+04    0.00000e+00   -5.10449e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.45647e+04   -3.64801e+04    4.31516e+05    3.86313e+02   -5.31240e+04
+
+DD  step 324999  vol min/aver 0.755  load imb.: force  6.5%
+
+           Step           Time         Lambda
+         325000      162.50000        0.00000
+
+Current ref_t for group Ch:    506.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.88188e+03    4.42076e+03    5.80256e+00   -8.95370e+03    1.66757e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25926e+03   -7.64216e+03   -4.71528e+04    0.00000e+00   -5.10319e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.40565e+04   -3.69754e+04    4.38626e+05    3.72832e+02   -5.59213e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 329999  vol min/aver 0.715! load imb.: force  4.1%
+
+           Step           Time         Lambda
+         330000      165.00000        0.00000
+
+Current ref_t for group Ch:    502.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.73682e+03    4.31280e+03    5.27490e+00   -9.10950e+03    1.65646e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25362e+03   -7.66078e+03   -4.76463e+04    0.00000e+00   -5.29589e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.52486e+04   -3.77103e+04    4.45049e+05    4.04452e+02   -5.43956e+04
+
+DD  step 334999  vol min/aver 0.812  load imb.: force 10.2%
+
+           Step           Time         Lambda
+         335000      167.50000        0.00000
+
+Current ref_t for group Ch:    498.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.01638e+03    4.36721e+03    4.75157e+00   -8.99154e+03    1.73547e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26078e+03   -7.56938e+03   -4.73633e+04    0.00000e+00   -5.10612e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.43210e+04   -3.67402e+04    4.52551e+05    3.79849e+02   -5.33694e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 339999  vol min/aver 0.760! load imb.: force  3.7%
+
+           Step           Time         Lambda
+         340000      170.00000        0.00000
+
+Current ref_t for group Ch:    495.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.47174e+03    4.40506e+03    5.05173e+00   -9.03293e+03    1.76923e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26290e+03   -7.57759e+03   -4.68449e+04    0.00000e+00   -5.10673e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.40131e+04   -3.70542e+04    4.60329e+05    3.71681e+02   -5.47270e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 344999  vol min/aver 0.756! load imb.: force  4.5%
+
+           Step           Time         Lambda
+         345000      172.50000        0.00000
+
+Current ref_t for group Ch:    491.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.52688e+03    4.72063e+03    6.03333e+00   -8.89933e+03    1.76662e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26164e+03   -7.50103e+03   -4.70715e+04    0.00000e+00   -5.07133e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.42927e+04   -3.64207e+04    4.66732e+05    3.79097e+02   -5.51216e+04
+
+DD  step 349999  vol min/aver 0.780  load imb.: force  7.2%
+
+           Step           Time         Lambda
+         350000      175.00000        0.00000
+
+Current ref_t for group Ch:    487.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.73177e+03    4.39370e+03    4.48050e+00   -8.96426e+03    1.70845e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26121e+03   -7.51910e+03   -4.70153e+04    0.00000e+00   -5.09215e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.36453e+04   -3.72762e+04    4.74066e+05    3.61925e+02   -5.65012e+04
+
+DD  step 354999  vol min/aver 0.762  load imb.: force  6.3%
+
+           Step           Time         Lambda
+         355000      177.50000        0.00000
+
+Current ref_t for group Ch:    483.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.94970e+03    4.56824e+03    5.44157e+00   -8.99758e+03    1.70664e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25772e+03   -7.54148e+03   -4.77807e+04    0.00000e+00   -5.23474e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.46576e+04   -3.76898e+04    4.80234e+05    3.88777e+02   -5.34140e+04
+
+DD  step 359999  vol min/aver 0.784  load imb.: force  4.0%
+
+           Step           Time         Lambda
+         360000      180.00000        0.00000
+
+Current ref_t for group Ch:    480.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.99599e+03    4.35515e+03    5.05997e+00   -8.97574e+03    1.72811e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25793e+03   -7.57733e+03   -4.71788e+04    0.00000e+00   -5.19055e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.36568e+04   -3.82487e+04    4.88045e+05    3.62232e+02   -5.30319e+04
+
+DD  step 364999  vol min/aver 0.825  load imb.: force  5.9%
+
+           Step           Time         Lambda
+         365000      182.50000        0.00000
+
+Current ref_t for group Ch:    476.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.98422e+03    4.47550e+03    4.34280e+00   -8.91407e+03    1.75398e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25712e+03   -7.53826e+03   -4.72185e+04    0.00000e+00   -5.17099e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.39870e+04   -3.77228e+04    4.95365e+05    3.70990e+02   -5.34060e+04
+
+DD  step 369999  vol min/aver 0.812  load imb.: force  3.4%
+
+           Step           Time         Lambda
+         370000      185.00000        0.00000
+
+Current ref_t for group Ch:    472.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.58826e+03    4.14604e+03    5.37114e+00   -8.97127e+03    1.72809e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26051e+03   -7.53826e+03   -4.76038e+04    0.00000e+00   -5.29061e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.39500e+04   -3.89561e+04    5.02008e+05    3.70007e+02   -5.25950e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 374999  vol min/aver 0.750! load imb.: force  6.5%
+
+           Step           Time         Lambda
+         375000      187.50000        0.00000
+
+Current ref_t for group Ch:    469.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.63169e+03    4.21366e+03    6.45127e+00   -9.02146e+03    1.71029e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25983e+03   -7.57005e+03   -4.71056e+04    0.00000e+00   -5.23949e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.35790e+04   -3.88159e+04    5.09235e+05    3.60166e+02   -5.53891e+04
+
+DD  step 379999  vol min/aver 0.811  load imb.: force  9.0%
+
+           Step           Time         Lambda
+         380000      190.00000        0.00000
+
+Current ref_t for group Ch:    465.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.83483e+03    4.31143e+03    4.61048e+00   -9.09721e+03    1.64798e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25462e+03   -7.64452e+03   -4.72508e+04    0.00000e+00   -5.24483e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.33505e+04   -3.90978e+04    5.15943e+05    3.54108e+02   -5.49723e+04
+
+DD  step 384999  vol min/aver 0.817  load imb.: force  7.7%
+
+           Step           Time         Lambda
+         385000      192.50000        0.00000
+
+Current ref_t for group Ch:    461.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.89298e+03    4.27076e+03    6.24073e+00   -9.06368e+03    1.68670e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25536e+03   -7.69613e+03   -4.72079e+04    0.00000e+00   -5.23663e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.31074e+04   -3.92589e+04    5.22735e+05    3.47660e+02   -5.44101e+04
+
+DD  step 389999  vol min/aver 0.677  load imb.: force  5.1%
+
+           Step           Time         Lambda
+         390000      195.00000        0.00000
+
+Current ref_t for group Ch:    457.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.91091e+03    4.11667e+03    7.63022e+00   -9.04026e+03    1.69942e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25873e+03   -7.57528e+03   -4.71713e+04    0.00000e+00   -5.23110e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.26282e+04   -3.96828e+04    5.29558e+05    3.34947e+02   -5.71620e+04
+
+DD  step 394999  vol min/aver 0.760  load imb.: force  3.6%
+
+           Step           Time         Lambda
+         395000      197.50000        0.00000
+
+Current ref_t for group Ch:    454.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.93196e+03    4.17536e+03    8.01715e+00   -9.09595e+03    1.73516e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25890e+03   -7.60099e+03   -4.74411e+04    0.00000e+00   -5.25465e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.26504e+04   -3.98961e+04    5.36182e+05    3.35536e+02   -5.26514e+04
+
+DD  step 399999  vol min/aver 0.737  load imb.: force  4.0%
+
+           Step           Time         Lambda
+         400000      200.00000        0.00000
+
+Current ref_t for group Ch:    450.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.88276e+03    4.21524e+03    5.96348e+00   -9.12426e+03    1.73475e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25631e+03   -7.64248e+03   -4.69318e+04    0.00000e+00   -5.21161e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.27942e+04   -3.93220e+04    5.43473e+05    3.39350e+02   -5.47940e+04
+
+DD  step 404999  vol min/aver 0.726  load imb.: force  4.4%
+
+           Step           Time         Lambda
+         405000      202.50000        0.00000
+
+Current ref_t for group Ch:    446.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.93793e+03    4.16246e+03    4.78509e+00   -9.00800e+03    1.74088e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26218e+03   -7.50863e+03   -4.68541e+04    0.00000e+00   -5.27869e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.34377e+04   -3.93492e+04    5.51082e+05    3.56420e+02   -5.49505e+04
+
+DD  step 409999  vol min/aver 0.723  load imb.: force  3.4%
+
+           Step           Time         Lambda
+         410000      205.00000        0.00000
+
+Current ref_t for group Ch:    442.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.29427e+03    4.09414e+03    6.62102e+00   -9.03176e+03    1.72645e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25778e+03   -7.59940e+03   -4.73280e+04    0.00000e+00   -5.30955e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.30649e+04   -4.00306e+04    5.57743e+05    3.46531e+02   -5.28581e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 414999  vol min/aver 0.706! load imb.: force  4.5%
+
+           Step           Time         Lambda
+         415000      207.50000        0.00000
+
+Current ref_t for group Ch:    439.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.06733e+03    4.06748e+03    7.34865e+00   -9.03824e+03    1.70839e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25994e+03   -7.67746e+03   -4.66934e+04    0.00000e+00   -5.18185e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.23298e+04   -3.94886e+04    5.65899e+05    3.27035e+02   -5.41199e+04
+
+DD  step 419999  vol min/aver 0.744  load imb.: force 11.0%
+
+           Step           Time         Lambda
+         420000      210.00000        0.00000
+
+Current ref_t for group Ch:    435.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.65014e+03    3.74475e+03    4.63055e+00   -9.20453e+03    1.67712e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25826e+03   -7.55748e+03   -4.76458e+04    0.00000e+00   -5.35894e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.24150e+04   -4.11745e+04    5.71944e+05    3.29292e+02   -5.60241e+04
+
+DD  step 424999  vol min/aver 0.724  load imb.: force  6.1%
+
+           Step           Time         Lambda
+         425000      212.50000        0.00000
+
+Current ref_t for group Ch:    431.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.18316e+03    3.79044e+03    5.03497e+00   -9.12466e+03    1.66451e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26310e+03   -7.65982e+03   -4.70440e+04    0.00000e+00   -5.24484e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.21044e+04   -4.03440e+04    5.79479e+05    3.21055e+02   -5.73054e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 429999  vol min/aver 0.704! load imb.: force  6.5%
+
+           Step           Time         Lambda
+         430000      215.00000        0.00000
+
+Current ref_t for group Ch:    427.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.20568e+03    4.08423e+03    5.87102e+00   -9.12076e+03    1.69308e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25881e+03   -7.69316e+03   -4.73022e+04    0.00000e+00   -5.33860e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.22920e+04   -4.10940e+04    5.85624e+05    3.26032e+02   -5.38331e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 434999  vol min/aver 0.686! load imb.: force  5.1%
+
+           Step           Time         Lambda
+         435000      217.50000        0.00000
+
+Current ref_t for group Ch:    424.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.98664e+03    4.00209e+03    5.85888e+00   -9.19305e+03    1.65889e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25979e+03   -7.65825e+03   -4.71487e+04    0.00000e+00   -5.36063e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.23091e+04   -4.12972e+04    5.92635e+05    3.26485e+02   -5.32476e+04
+
+DD  step 439999  vol min/aver 0.753  load imb.: force  8.5%
+
+           Step           Time         Lambda
+         440000      220.00000        0.00000
+
+Current ref_t for group Ch:    420.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.24146e+03    3.98143e+03    4.66823e+00   -9.14475e+03    1.72136e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26332e+03   -7.68896e+03   -4.77050e+04    0.00000e+00   -5.38531e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.24640e+04   -4.13892e+04    5.98612e+05    3.30593e+02   -5.34205e+04
+
+DD  step 444999  vol min/aver 0.822  load imb.: force  5.1%
+
+           Step           Time         Lambda
+         445000      222.50000        0.00000
+
+Current ref_t for group Ch:    416.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.72338e+03    3.76249e+03    5.02292e+00   -9.15830e+03    1.70854e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26219e+03   -7.66826e+03   -4.68341e+04    0.00000e+00   -5.37235e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.24903e+04   -4.12332e+04    6.06354e+05    3.31290e+02   -5.47277e+04
+
+Writing checkpoint, step 446120 at Mon Jul  9 20:41:25 2018
+
+
+DD  step 449999  vol min/aver 0.848  load imb.: force  7.6%
+
+           Step           Time         Lambda
+         450000      225.00000        0.00000
+
+Current ref_t for group Ch:    412.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.95273e+03    3.92474e+03    5.44099e+00   -9.11350e+03    1.64633e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25729e+03   -7.72880e+03   -4.71776e+04    0.00000e+00   -5.27480e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.15782e+04   -4.11698e+04    6.12871e+05    3.07099e+02   -5.62185e+04
+
+DD  step 454999  vol min/aver 0.740  load imb.: force  6.5%
+
+           Step           Time         Lambda
+         455000      227.50000        0.00000
+
+Current ref_t for group Ch:    409.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.85704e+03    3.96465e+03    3.78911e+00   -9.23349e+03    1.68293e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26040e+03   -7.68351e+03   -4.69211e+04    0.00000e+00   -5.35901e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.20250e+04   -4.15650e+04    6.19864e+05    3.18951e+02   -5.62198e+04
+
+DD  step 459999  vol min/aver 0.765  load imb.: force  9.7%
+
+           Step           Time         Lambda
+         460000      230.00000        0.00000
+
+Current ref_t for group Ch:    405.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.69559e+03    3.85392e+03    4.36550e+00   -9.23866e+03    1.62166e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25727e+03   -7.72892e+03   -4.67961e+04    0.00000e+00   -5.38454e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.22030e+04   -4.16424e+04    6.26313e+05    3.23670e+02   -5.57644e+04
+
+DD  step 464999  vol min/aver 0.822  load imb.: force  7.1%
+
+           Step           Time         Lambda
+         465000      232.50000        0.00000
+
+Current ref_t for group Ch:    401.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.14726e+03    3.80960e+03    5.49921e+00   -9.23377e+03    1.54681e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25800e+03   -7.67711e+03   -4.74452e+04    0.00000e+00   -5.41049e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.14569e+04   -4.26480e+04    6.32357e+05    3.03880e+02   -5.22578e+04
+
+DD  step 469999  vol min/aver 0.813  load imb.: force  7.6%
+
+           Step           Time         Lambda
+         470000      235.00000        0.00000
+
+Current ref_t for group Ch:    397.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.67766e+03    3.87451e+03    5.07101e+00   -9.22245e+03    1.65099e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25923e+03   -7.68776e+03   -4.73926e+04    0.00000e+00   -5.33538e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.13144e+04   -4.20394e+04    6.38832e+05    3.00100e+02   -5.53561e+04
+
+DD  step 474999  vol min/aver 0.825  load imb.: force  7.8%
+
+           Step           Time         Lambda
+         475000      237.50000        0.00000
+
+Current ref_t for group Ch:    394.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.43994e+03    3.77870e+03    4.55442e+00   -9.20670e+03    1.66842e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25656e+03   -7.60050e+03   -4.68387e+04    0.00000e+00   -5.40108e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.19152e+04   -4.20956e+04    6.46125e+05    3.16036e+02   -5.27033e+04
+
+DD  step 479999  vol min/aver 0.769  load imb.: force  6.9%
+
+           Step           Time         Lambda
+         480000      240.00000        0.00000
+
+Current ref_t for group Ch:    390.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.37599e+03    3.49077e+03    5.69099e+00   -9.23684e+03    1.66957e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26060e+03   -7.67002e+03   -4.74816e+04    0.00000e+00   -5.41070e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.10718e+04   -4.30353e+04    6.51677e+05    2.93666e+02   -5.57544e+04
+
+DD  step 484999  vol min/aver 0.739  load imb.: force  8.7%
+
+           Step           Time         Lambda
+         485000      242.50000        0.00000
+
+Current ref_t for group Ch:    386.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.08342e+03    3.85299e+03    5.21293e+00   -9.15816e+03    1.66673e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26314e+03   -7.68465e+03   -4.72522e+04    0.00000e+00   -5.37498e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.07872e+04   -4.29626e+04    6.58537e+05    2.86119e+02   -5.49234e+04
+
+DD  step 489999  vol min/aver 0.814  load imb.: force  6.7%
+
+           Step           Time         Lambda
+         490000      245.00000        0.00000
+
+Current ref_t for group Ch:    382.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.59339e+03    3.65822e+03    3.89581e+00   -9.11293e+03    1.65617e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25682e+03   -7.69513e+03   -4.73765e+04    0.00000e+00   -5.45297e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.10505e+04   -4.34792e+04    6.65032e+05    2.93102e+02   -5.58949e+04
+
+DD  step 494999  vol min/aver 0.840  load imb.: force  7.2%
+
+           Step           Time         Lambda
+         495000      247.50000        0.00000
+
+Current ref_t for group Ch:    379.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.02648e+03    3.67916e+03    3.75694e+00   -9.23047e+03    1.63126e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25391e+03   -7.65880e+03   -4.70777e+04    0.00000e+00   -5.38803e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.03092e+04   -4.35710e+04    6.71701e+05    2.73441e+02   -5.22749e+04
+
+DD  step 499999  vol min/aver 0.854  load imb.: force  4.3%
+
+           Step           Time         Lambda
+         500000      250.00000        0.00000
+
+Current ref_t for group Ch:    375.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.84552e+03    3.52658e+03    4.62660e+00   -9.17002e+03    1.68042e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26013e+03   -7.67629e+03   -4.69997e+04    0.00000e+00   -5.50489e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.18516e+04   -4.31974e+04    6.78174e+05    3.14349e+02   -5.21359e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 504999  vol min/aver 0.841! load imb.: force  6.5%
+
+           Step           Time         Lambda
+         505000      252.50000        0.00000
+
+Current ref_t for group Ch:    371.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.45483e+03    3.72667e+03    5.27654e+00   -9.25389e+03    1.61742e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25274e+03   -7.68650e+03   -4.72907e+04    0.00000e+00   -5.46797e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.08366e+04   -4.38431e+04    6.84028e+05    2.87428e+02   -5.68065e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 509999  vol min/aver 0.831! load imb.: force  4.3%
+
+           Step           Time         Lambda
+         510000      255.00000        0.00000
+
+Current ref_t for group Ch:    367.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.80751e+03    3.72879e+03    4.42972e+00   -9.18274e+03    1.60730e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26128e+03   -7.76787e+03   -4.72939e+04    0.00000e+00   -5.53577e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.10097e+04   -4.43480e+04    6.90007e+05    2.92021e+02   -5.59317e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 514999  vol min/aver 0.819! load imb.: force  4.2%
+
+           Step           Time         Lambda
+         515000      257.50000        0.00000
+
+Current ref_t for group Ch:    364.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.89916e+03    3.56958e+03    4.95582e+00   -9.34626e+03    1.63601e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25854e+03   -7.74481e+03   -4.75049e+04    0.00000e+00   -5.57448e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.06028e+04   -4.51420e+04    6.95903e+05    2.81226e+02   -5.51402e+04
+
+DD  step 519999  vol min/aver 0.825  load imb.: force  6.0%
+
+           Step           Time         Lambda
+         520000      260.00000        0.00000
+
+Current ref_t for group Ch:    360.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.23283e+03    3.65694e+03    4.05055e+00   -9.29150e+03    1.61975e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25801e+03   -7.74015e+03   -4.73790e+04    0.00000e+00   -5.51551e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.04496e+04   -4.47055e+04    7.02023e+05    2.77164e+02   -5.64007e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 524999  vol min/aver 0.806! load imb.: force  7.5%
+
+           Step           Time         Lambda
+         525000      262.50000        0.00000
+
+Current ref_t for group Ch:    356.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.30809e+03    3.43935e+03    4.80537e+00   -9.24013e+03    1.54830e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25492e+03   -7.70525e+03   -4.72131e+04    0.00000e+00   -5.51128e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.04785e+04   -4.46344e+04    7.08772e+05    2.77929e+02   -5.54010e+04
+
+DD  step 529999  vol min/aver 0.799  load imb.: force  6.7%
+
+           Step           Time         Lambda
+         530000      265.00000        0.00000
+
+Current ref_t for group Ch:    352.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.10803e+03    3.58799e+03    7.93467e+00   -9.21707e+03    1.69134e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25768e+03   -7.70225e+03   -4.76408e+04    0.00000e+00   -5.54225e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.01611e+04   -4.52614e+04    7.14445e+05    2.69512e+02   -5.23477e+04
+
+DD  step 534999  vol min/aver 0.833  load imb.: force  6.0%
+
+           Step           Time         Lambda
+         535000      267.50000        0.00000
+
+Current ref_t for group Ch:    349.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.42089e+03    3.60714e+03    4.94577e+00   -9.29875e+03    1.61391e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26157e+03   -7.71592e+03   -4.73334e+04    0.00000e+00   -5.49628e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.65937e+03   -4.53034e+04    7.20796e+05    2.56203e+02   -5.57295e+04
+
+DD  step 539999  vol min/aver 0.812  load imb.: force  5.3%
+
+           Step           Time         Lambda
+         540000      270.00000        0.00000
+
+Current ref_t for group Ch:    345.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.63620e+03    3.36477e+03    6.06845e+00   -9.22899e+03    1.69160e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26030e+03   -7.60052e+03   -4.71135e+04    0.00000e+00   -5.55047e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.02941e+04   -4.52106e+04    7.27088e+05    2.73038e+02   -5.30866e+04
+
+DD  step 544999  vol min/aver 0.817  load imb.: force  9.2%
+
+           Step           Time         Lambda
+         545000      272.50000        0.00000
+
+Current ref_t for group Ch:    341.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.72790e+03    3.61126e+03    4.84828e+00   -9.34410e+03    1.61774e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26102e+03   -7.73363e+03   -4.76544e+04    0.00000e+00   -5.60314e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.92446e+03   -4.61069e+04    7.32414e+05    2.63235e+02   -5.61375e+04
+
+DD  step 549999  vol min/aver 0.792  load imb.: force  4.6%
+
+           Step           Time         Lambda
+         550000      275.00000        0.00000
+
+Current ref_t for group Ch:    337.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.81554e+03    3.52992e+03    4.98207e+00   -9.28411e+03    1.63389e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26141e+03   -7.71652e+03   -4.74713e+04    0.00000e+00   -5.57491e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.84461e+03   -4.59044e+04    7.39017e+05    2.61117e+02   -5.44960e+04
+
+DD  step 554999  vol min/aver 0.710  load imb.: force 12.2%
+
+           Step           Time         Lambda
+         555000      277.50000        0.00000
+
+Current ref_t for group Ch:    334.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.80180e+03    3.49104e+03    5.23858e+00   -9.28137e+03    1.67410e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25970e+03   -7.70540e+03   -4.70431e+04    0.00000e+00   -5.53174e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.82394e+03   -4.54934e+04    7.45581e+05    2.60569e+02   -5.47235e+04
+
+DD  step 559999  vol min/aver 0.825  load imb.: force  4.1%
+
+           Step           Time         Lambda
+         560000      280.00000        0.00000
+
+Current ref_t for group Ch:    330.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.12003e+03    3.51145e+03    5.29401e+00   -9.26126e+03    1.63608e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26188e+03   -7.70427e+03   -4.65668e+04    0.00000e+00   -5.45213e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.34033e+03   -4.51810e+04    7.52358e+05    2.47742e+02   -5.51462e+04
+
+DD  step 564999  vol min/aver 0.832  load imb.: force  4.5%
+
+           Step           Time         Lambda
+         565000      282.50000        0.00000
+
+Current ref_t for group Ch:    326.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.41253e+03    3.70921e+03    5.19974e+00   -9.23309e+03    1.62520e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25371e+03   -7.75107e+03   -4.68055e+04    0.00000e+00   -5.52912e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.77585e+03   -4.55153e+04    7.58362e+05    2.59293e+02   -5.45513e+04
+
+DD  step 569999  vol min/aver 0.811  load imb.: force  6.3%
+
+           Step           Time         Lambda
+         570000      285.00000        0.00000
+
+Current ref_t for group Ch:    323.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.41666e+03    3.40979e+03    4.71700e+00   -9.31762e+03    1.62882e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26291e+03   -7.74953e+03   -4.75440e+04    0.00000e+00   -5.64141e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.64125e+03   -4.67728e+04    7.63950e+05    2.55723e+02   -5.61704e+04
+
+DD  step 574999  vol min/aver 0.820  load imb.: force 12.9%
+
+           Step           Time         Lambda
+         575000      287.50000        0.00000
+
+Current ref_t for group Ch:    319.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.18379e+03    3.43867e+03    4.26987e+00   -9.31043e+03    1.55565e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25405e+03   -7.81999e+03   -4.76589e+04    0.00000e+00   -5.68610e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.52017e+03   -4.73408e+04    7.69703e+05    2.52511e+02   -5.70147e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 579999  vol min/aver 0.803! load imb.: force  4.4%
+
+           Step           Time         Lambda
+         580000      290.00000        0.00000
+
+Current ref_t for group Ch:    315.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.46832e+03    3.29803e+03    5.54038e+00   -9.29077e+03    1.62648e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25986e+03   -7.76469e+03   -4.72022e+04    0.00000e+00   -5.61192e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.31303e+03   -4.68061e+04    7.76156e+05    2.47017e+02   -5.40197e+04
+
+DD  step 584999  vol min/aver 0.797  load imb.: force  8.8%
+
+           Step           Time         Lambda
+         585000      292.50000        0.00000
+
+Current ref_t for group Ch:    311.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.16222e+03    3.40793e+03    4.47275e+00   -9.25649e+03    1.64906e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26250e+03   -7.76555e+03   -4.75422e+04    0.00000e+00   -5.66031e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.66348e+03   -4.69396e+04    7.81557e+05    2.56313e+02   -5.42367e+04
+
+DD  step 589999  vol min/aver 0.821  load imb.: force  8.1%
+
+           Step           Time         Lambda
+         590000      295.00000        0.00000
+
+Current ref_t for group Ch:    308.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.29206e+03    3.26038e+03    5.55629e+00   -9.26062e+03    1.59136e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25482e+03   -7.83089e+03   -4.66773e+04    0.00000e+00   -5.58742e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.05884e+03   -4.68154e+04    7.88554e+05    2.40275e+02   -5.67851e+04
+
+DD  step 594999  vol min/aver 0.823  load imb.: force  8.4%
+
+           Step           Time         Lambda
+         595000      297.50000        0.00000
+
+Current ref_t for group Ch:    304.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.24467e+03    3.16480e+03    4.83321e+00   -9.39054e+03    1.61186e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25854e+03   -7.77482e+03   -4.69649e+04    0.00000e+00   -5.63627e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.04316e+03   -4.73195e+04    7.93713e+05    2.39859e+02   -5.62584e+04
+
+DD  step 599999  vol min/aver 0.845  load imb.: force 12.2%
+
+           Step           Time         Lambda
+         600000      300.00000        0.00000
+
+Current ref_t for group Ch:    300.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.45876e+03    3.25295e+03    4.76113e+00   -9.35998e+03    1.57428e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26133e+03   -7.76751e+03   -4.69607e+04    0.00000e+00   -5.60588e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.61606e+03   -4.74427e+04    7.99558e+05    2.28531e+02   -5.70380e+04
+
+DD  step 604999  vol min/aver 0.831  load imb.: force  5.8%
+
+           Step           Time         Lambda
+         605000      302.50000        0.00000
+
+Current ref_t for group Ch:    296.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.32591e+03    3.08683e+03    4.84470e+00   -9.41534e+03    1.57536e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25747e+03   -7.80336e+03   -4.71577e+04    0.00000e+00   -5.66409e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.51286e+03   -4.81281e+04    8.05518e+05    2.25794e+02   -5.82946e+04
+
+DD  step 609999  vol min/aver 0.770  load imb.: force  9.5%
+
+           Step           Time         Lambda
+         610000      305.00000        0.00000
+
+Current ref_t for group Ch:    293.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.09258e+03    3.11808e+03    3.99068e+00   -9.39280e+03    1.54328e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25209e+03   -7.83975e+03   -4.69074e+04    0.00000e+00   -5.66341e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.78498e+03   -4.78491e+04    8.11501e+05    2.33011e+02   -5.55946e+04
+
+DD  step 614999  vol min/aver 0.766  load imb.: force 10.6%
+
+           Step           Time         Lambda
+         615000      307.50000        0.00000
+
+Current ref_t for group Ch:    289.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.10990e+03    3.11303e+03    5.89840e+00   -9.46917e+03    1.58539e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25932e+03   -7.88676e+03   -4.71655e+04    0.00000e+00   -5.69665e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.40199e+03   -4.85646e+04    8.16799e+05    2.22853e+02   -5.76796e+04
+
+DD  step 619999  vol min/aver 0.751  load imb.: force 14.9%
+
+           Step           Time         Lambda
+         620000      310.00000        0.00000
+
+Current ref_t for group Ch:    285.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.83783e+03    3.02712e+03    5.36552e+00   -9.38194e+03    1.60918e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26062e+03   -7.77362e+03   -4.68973e+04    0.00000e+00   -5.68340e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.43074e+03   -4.84033e+04    8.22759e+05    2.23616e+02   -5.55854e+04
+
+DD  step 624999  vol min/aver 0.803  load imb.: force  7.0%
+
+           Step           Time         Lambda
+         625000      312.50000        0.00000
+
+Current ref_t for group Ch:    281.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.55821e+03    3.00831e+03    6.56828e+00   -9.41267e+03    1.64961e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25811e+03   -7.80264e+03   -4.76020e+04    0.00000e+00   -5.78527e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.23025e+03   -4.96224e+04    8.27653e+05    2.18298e+02   -5.45628e+04
+
+DD  step 629999  vol min/aver 0.771  load imb.: force  3.5%
+
+           Step           Time         Lambda
+         630000      315.00000        0.00000
+
+Current ref_t for group Ch:    278.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.59581e+03    3.08128e+03    4.19117e+00   -9.43773e+03    1.51919e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25878e+03   -7.84564e+03   -4.74897e+04    0.00000e+00   -5.78314e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.26643e+03   -4.95649e+04    8.33130e+05    2.19258e+02   -5.69778e+04
+
+DD  step 634999  vol min/aver 0.796  load imb.: force  5.1%
+
+           Step           Time         Lambda
+         635000      317.50000        0.00000
+
+Current ref_t for group Ch:    274.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.56496e+03    3.04989e+03    4.77456e+00   -9.40588e+03    1.57427e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25696e+03   -7.83437e+03   -4.67951e+04    0.00000e+00   -5.70984e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.30740e+03   -4.87910e+04    8.39303e+05    2.20344e+02   -5.39909e+04
+
+DD  step 639999  vol min/aver 0.802  load imb.: force  8.7%
+
+           Step           Time         Lambda
+         640000      320.00000        0.00000
+
+Current ref_t for group Ch:    270.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.63825e+03    3.00011e+03    5.46478e+00   -9.49019e+03    1.56033e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26170e+03   -7.90010e+03   -4.69906e+04    0.00000e+00   -5.74384e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    8.17105e+03   -4.92674e+04    8.45021e+05    2.16728e+02   -5.45755e+04
+
+DD  step 644999  vol min/aver 0.769  load imb.: force  3.5%
+
+           Step           Time         Lambda
+         645000      322.50000        0.00000
+
+Current ref_t for group Ch:    266.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.87392e+03    3.11016e+03    5.62889e+00   -9.42458e+03    1.54609e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25761e+03   -7.86666e+03   -4.67523e+04    0.00000e+00   -5.67654e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.85492e+03   -4.89105e+04    8.50690e+05    2.08343e+02   -5.66739e+04
+
+DD  step 649999  vol min/aver 0.788  load imb.: force  6.7%
+
+           Step           Time         Lambda
+         650000      325.00000        0.00000
+
+Current ref_t for group Ch:    263.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.65144e+03    3.02488e+03    5.25683e+00   -9.43705e+03    1.58710e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25671e+03   -7.86024e+03   -4.72785e+04    0.00000e+00   -5.75638e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.82182e+03   -4.97420e+04    8.55974e+05    2.07465e+02   -5.51561e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 654999  vol min/aver 0.745! load imb.: force  7.8%
+
+           Step           Time         Lambda
+         655000      327.50000        0.00000
+
+Current ref_t for group Ch:    259.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.56101e+03    2.91506e+03    5.34613e+00   -9.35873e+03    1.53400e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26168e+03   -7.89413e+03   -4.70354e+04    0.00000e+00   -5.75346e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.96153e+03   -4.95730e+04    8.61625e+05    2.11170e+02   -5.73540e+04
+
+DD  step 659999  vol min/aver 0.798  load imb.: force  5.5%
+
+           Step           Time         Lambda
+         660000      330.00000        0.00000
+
+Current ref_t for group Ch:    255.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.61708e+03    2.76712e+03    4.25029e+00   -9.38828e+03    1.58855e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25568e+03   -7.83413e+03   -4.67847e+04    0.00000e+00   -5.72858e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.78008e+03   -4.95057e+04    8.67492e+05    2.06357e+02   -5.56842e+04
+
+DD  step 664999  vol min/aver 0.783  load imb.: force  8.6%
+
+           Step           Time         Lambda
+         665000      332.50000        0.00000
+
+Current ref_t for group Ch:    251.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.41374e+03    3.00367e+03    4.31806e+00   -9.37094e+03    1.55308e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25435e+03   -7.92673e+03   -4.69939e+04    0.00000e+00   -5.75711e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.71190e+03   -4.98592e+04    8.72852e+05    2.04549e+02   -5.47210e+04
+
+DD  step 669999  vol min/aver 0.780  load imb.: force 12.8%
+
+           Step           Time         Lambda
+         670000      335.00000        0.00000
+
+Current ref_t for group Ch:    248.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.32406e+03    2.76024e+03    4.26856e+00   -9.45350e+03    1.53079e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26226e+03   -7.83011e+03   -4.66663e+04    0.00000e+00   -5.75928e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.57418e+03   -5.00187e+04    8.78573e+05    2.00896e+02   -5.64772e+04
+
+DD  step 674999  vol min/aver 0.745  load imb.: force  9.7%
+
+           Step           Time         Lambda
+         675000      337.50000        0.00000
+
+Current ref_t for group Ch:    244.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.42921e+03    2.85328e+03    4.79399e+00   -9.46820e+03    1.56235e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26189e+03   -7.89130e+03   -4.72270e+04    0.00000e+00   -5.79988e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.22289e+03   -5.07759e+04    8.83430e+05    1.91579e+02   -5.39240e+04
+
+DD  step 679999  vol min/aver 0.785  load imb.: force  4.9%
+
+           Step           Time         Lambda
+         680000      340.00000        0.00000
+
+Current ref_t for group Ch:    240.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.01075e+03    2.81486e+03    5.23075e+00   -9.42074e+03    1.48521e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25605e+03   -7.92287e+03   -4.69589e+04    0.00000e+00   -5.82425e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.61476e+03   -5.06277e+04    8.88746e+05    2.01973e+02   -5.49423e+04
+
+DD  step 684999  vol min/aver 0.751  load imb.: force  3.3%
+
+           Step           Time         Lambda
+         685000      342.50000        0.00000
+
+Current ref_t for group Ch:    236.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.19548e+03    2.83353e+03    5.01025e+00   -9.46329e+03    1.57120e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25981e+03   -7.93316e+03   -4.68872e+04    0.00000e+00   -5.79383e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.06364e+03   -5.08746e+04    8.93972e+05    1.87355e+02   -5.26292e+04
+
+DD  step 689999  vol min/aver 0.776  load imb.: force 10.8%
+
+           Step           Time         Lambda
+         690000      345.00000        0.00000
+
+Current ref_t for group Ch:    233.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.62372e+03    2.70339e+03    6.26091e+00   -9.51262e+03    1.49050e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25805e+03   -7.88816e+03   -4.64929e+04    0.00000e+00   -5.73278e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.62372e+03   -5.07041e+04    8.99745e+05    1.75686e+02   -5.72840e+04
+
+DD  step 694999  vol min/aver 0.727  load imb.: force  8.4%
+
+           Step           Time         Lambda
+         695000      347.50000        0.00000
+
+Current ref_t for group Ch:    229.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.36637e+03    2.67079e+03    4.61173e+00   -9.52507e+03    1.48785e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25841e+03   -7.88837e+03   -4.69904e+04    0.00000e+00   -5.81326e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.04181e+03   -5.10908e+04    9.04689e+05    1.86776e+02   -5.75022e+04
+
+DD  step 699999  vol min/aver 0.732  load imb.: force  7.4%
+
+           Step           Time         Lambda
+         700000      350.00000        0.00000
+
+Current ref_t for group Ch:    225.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.03177e+03    2.65602e+03    5.41155e+00   -9.55222e+03    1.49701e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25601e+03   -7.92778e+03   -4.76791e+04    0.00000e+00   -5.92249e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.73617e+03   -5.24887e+04    9.09125e+05    1.78669e+02   -5.50239e+04
+
+DD  step 704999  vol min/aver 0.845  load imb.: force  4.3%
+
+           Step           Time         Lambda
+         705000      352.50000        0.00000
+
+Current ref_t for group Ch:    221.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.36660e+03    2.51421e+03    5.71609e+00   -9.59029e+03    1.49919e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25986e+03   -7.92633e+03   -4.69449e+04    0.00000e+00   -5.83357e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.49913e+03   -5.18366e+04    9.14843e+05    1.72382e+02   -5.36979e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 709999  vol min/aver 0.727! load imb.: force  5.7%
+
+           Step           Time         Lambda
+         710000      355.00000        0.00000
+
+Current ref_t for group Ch:    218.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.61691e+03    2.55194e+03    4.03533e+00   -9.55692e+03    1.47211e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25847e+03   -7.95527e+03   -4.68667e+04    0.00000e+00   -5.79923e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.16832e+03   -5.18240e+04    9.20222e+05    1.63608e+02   -5.56798e+04
+
+DD  step 714999  vol min/aver 0.765  load imb.: force  7.2%
+
+           Step           Time         Lambda
+         715000      357.50000        0.00000
+
+Current ref_t for group Ch:    214.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.81076e+03    2.58842e+03    4.82845e+00   -9.53426e+03    1.51181e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25632e+03   -7.90494e+03   -4.70437e+04    0.00000e+00   -5.88234e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.38069e+03   -5.24427e+04    9.24885e+05    1.69240e+02   -5.50876e+04
+
+DD  step 719999  vol min/aver 0.787  load imb.: force  6.5%
+
+           Step           Time         Lambda
+         720000      360.00000        0.00000
+
+Current ref_t for group Ch:    210.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.70545e+03    2.38796e+03    3.58103e+00   -9.57754e+03    1.55584e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25505e+03   -7.88574e+03   -4.65664e+04    0.00000e+00   -5.86319e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.48835e+03   -5.21435e+04    9.30038e+05    1.72096e+02   -5.36592e+04
+
+DD  step 724999  vol min/aver 0.721  load imb.: force  4.8%
+
+           Step           Time         Lambda
+         725000      362.50000        0.00000
+
+Current ref_t for group Ch:    206.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.59319e+03    2.52879e+03    4.52976e+00   -9.58742e+03    1.46733e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25497e+03   -7.95326e+03   -4.68024e+04    0.00000e+00   -5.90042e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.39425e+03   -5.26099e+04    9.34334e+05    1.69600e+02   -5.42100e+04
+
+DD  step 729999  vol min/aver 0.803  load imb.: force  7.6%
+
+           Step           Time         Lambda
+         730000      365.00000        0.00000
+
+Current ref_t for group Ch:    203.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.63167e+03    2.52427e+03    4.08393e+00   -9.58250e+03    1.51185e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25525e+03   -8.00534e+03   -4.65022e+04    0.00000e+00   -5.86735e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.27142e+03   -5.24020e+04    9.39331e+05    1.66342e+02   -5.68974e+04
+
+DD  step 734999  vol min/aver 0.791  load imb.: force  5.6%
+
+           Step           Time         Lambda
+         735000      367.50000        0.00000
+
+Current ref_t for group Ch:    199.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.72621e+03    2.47007e+03    5.32234e+00   -9.56629e+03    1.49447e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25881e+03   -7.92748e+03   -4.68237e+04    0.00000e+00   -5.88802e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.26562e+03   -5.26145e+04    9.43901e+05    1.66188e+02   -5.37437e+04
+
+DD  step 739999  vol min/aver 0.741  load imb.: force  3.5%
+
+           Step           Time         Lambda
+         740000      370.00000        0.00000
+
+Current ref_t for group Ch:    195.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.53001e+03    2.50285e+03    5.73532e+00   -9.62979e+03    1.53436e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25796e+03   -7.95746e+03   -4.71593e+04    0.00000e+00   -5.94316e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.11809e+03   -5.33135e+04    9.48221e+05    1.62275e+02   -5.46738e+04
+
+DD  step 744999  vol min/aver 0.790  load imb.: force  5.3%
+
+           Step           Time         Lambda
+         745000      372.50000        0.00000
+
+Current ref_t for group Ch:    191.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.70276e+03    2.42270e+03    4.88098e+00   -9.56097e+03    1.43897e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25734e+03   -8.02131e+03   -4.66656e+04    0.00000e+00   -5.89359e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.84809e+03   -5.30878e+04    9.53310e+05    1.55114e+02   -5.30276e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 749999  vol min/aver 0.768! load imb.: force  6.4%
+
+           Step           Time         Lambda
+         750000      375.00000        0.00000
+
+Current ref_t for group Ch:    188.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.80069e+03    2.37606e+03    4.33108e+00   -9.60550e+03    1.48652e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25749e+03   -7.94543e+03   -4.69123e+04    0.00000e+00   -5.90532e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.82149e+03   -5.32317e+04    9.58052e+05    1.54408e+02   -5.33291e+04
+
+DD  step 754999  vol min/aver 0.759  load imb.: force 10.2%
+
+           Step           Time         Lambda
+         755000      377.50000        0.00000
+
+Current ref_t for group Ch:    184.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.70510e+03    2.25989e+03    3.99906e+00   -9.67067e+03    1.50473e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25790e+03   -7.96771e+03   -4.67838e+04    0.00000e+00   -5.92063e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.62390e+03   -5.35824e+04    9.63084e+05    1.49167e+02   -5.38052e+04
+
+DD  step 759999  vol min/aver 0.761  load imb.: force  5.7%
+
+           Step           Time         Lambda
+         760000      380.00000        0.00000
+
+Current ref_t for group Ch:    180.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.20274e+03    2.30620e+03    4.70208e+00   -9.65413e+03    1.50328e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26035e+03   -8.00735e+03   -4.67528e+04    0.00000e+00   -5.96577e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.71026e+03   -5.39475e+04    9.67713e+05    1.51458e+02   -5.45469e+04
+
+DD  step 764999  vol min/aver 0.779  load imb.: force  8.3%
+
+           Step           Time         Lambda
+         765000      382.50000        0.00000
+
+Current ref_t for group Ch:    177.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.46718e+03    2.21827e+03    4.80672e+00   -9.67232e+03    1.45849e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26043e+03   -7.99787e+03   -4.67607e+04    0.00000e+00   -5.95425e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.52292e+03   -5.40196e+04    9.72323e+05    1.46489e+02   -5.52044e+04
+
+DD  step 769999  vol min/aver 0.747  load imb.: force  6.3%
+
+           Step           Time         Lambda
+         770000      385.00000        0.00000
+
+Current ref_t for group Ch:    173.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.50690e+03    2.21314e+03    4.75089e+00   -9.64993e+03    1.42322e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25843e+03   -8.00697e+03   -4.66220e+04    0.00000e+00   -5.93893e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.23952e+03   -5.41498e+04    9.76891e+05    1.38972e+02   -5.46508e+04
+
+DD  step 774999  vol min/aver 0.795  load imb.: force  8.4%
+
+           Step           Time         Lambda
+         775000      387.50000        0.00000
+
+Current ref_t for group Ch:    169.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.14901e+03    2.21985e+03    4.35143e+00   -9.68532e+03    1.49042e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25826e+03   -8.01207e+03   -4.65487e+04    0.00000e+00   -5.96408e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.36657e+03   -5.42742e+04    9.81525e+05    1.42342e+02   -5.59541e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 779999  vol min/aver 0.836! load imb.: force 12.6%
+
+           Step           Time         Lambda
+         780000      390.00000        0.00000
+
+Current ref_t for group Ch:    165.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.20612e+03    2.16539e+03    4.06182e+00   -9.68533e+03    1.46780e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26122e+03   -8.06623e+03   -4.70964e+04    0.00000e+00   -6.02658e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.34057e+03   -5.49252e+04    9.85426e+05    1.41652e+02   -5.60890e+04
+
+DD  step 784999  vol min/aver 0.778  load imb.: force 10.7%
+
+           Step           Time         Lambda
+         785000      392.50000        0.00000
+
+Current ref_t for group Ch:    162.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.05777e+03    2.15002e+03    4.52604e+00   -9.67843e+03    1.43695e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25564e+03   -8.06950e+03   -4.72570e+04    0.00000e+00   -6.06113e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.26680e+03   -5.53445e+04    9.89729e+05    1.39696e+02   -5.55075e+04
+
+DD  step 789999  vol min/aver 0.756  load imb.: force  9.9%
+
+           Step           Time         Lambda
+         790000      395.00000        0.00000
+
+Current ref_t for group Ch:    158.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.15916e+03    2.11772e+03    3.78349e+00   -9.70981e+03    1.45584e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25706e+03   -8.07121e+03   -4.68047e+04    0.00000e+00   -6.01063e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.02682e+03   -5.50795e+04    9.94742e+05    1.33330e+02   -5.44101e+04
+
+DD  step 794999  vol min/aver 0.817  load imb.: force  8.6%
+
+           Step           Time         Lambda
+         795000      397.50000        0.00000
+
+Current ref_t for group Ch:    154.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.04990e+03    2.10013e+03    5.55778e+00   -9.72514e+03    1.46093e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25790e+03   -8.04136e+03   -4.67640e+04    0.00000e+00   -6.01719e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.88637e+03   -5.52855e+04    9.99041e+05    1.29605e+02   -5.56152e+04
+
+DD  step 799999  vol min/aver 0.750  load imb.: force  8.9%
+
+           Step           Time         Lambda
+         800000      400.00000        0.00000
+
+Current ref_t for group Ch:    150.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.87795e+03    2.09295e+03    4.00883e+00   -9.70280e+03    1.44163e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25999e+03   -8.05333e+03   -4.69274e+04    0.00000e+00   -6.05270e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.77600e+03   -5.57510e+04    1.00319e+06    1.26678e+02   -5.45504e+04
+
+DD  step 804999  vol min/aver 0.712  load imb.: force  5.0%
+
+           Step           Time         Lambda
+         805000      402.50000        0.00000
+
+Current ref_t for group Ch:    147.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.12791e+03    2.00518e+03    4.83118e+00   -9.67950e+03    1.41747e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25547e+03   -8.08447e+03   -4.63540e+04    0.00000e+00   -5.98180e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.51120e+03   -5.53068e+04    1.00795e+06    1.19654e+02   -5.54586e+04
+
+DD  step 809999  vol min/aver 0.723  load imb.: force  7.2%
+
+           Step           Time         Lambda
+         810000      405.00000        0.00000
+
+Current ref_t for group Ch:    143.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.95222e+03    1.93929e+03    3.59970e+00   -9.70055e+03    1.47063e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25982e+03   -8.08787e+03   -4.70143e+04    0.00000e+00   -6.06968e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.55574e+03   -5.61410e+04    1.01135e+06    1.20836e+02   -5.47649e+04
+
+DD  step 814999  vol min/aver 0.752  load imb.: force 13.5%
+
+           Step           Time         Lambda
+         815000      407.50000        0.00000
+
+Current ref_t for group Ch:    139.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.71427e+03    1.93338e+03    3.80977e+00   -9.77344e+03    1.45281e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25880e+03   -8.12255e+03   -4.67690e+04    0.00000e+00   -6.08196e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.48254e+03   -5.63370e+04    1.01560e+06    1.18894e+02   -5.86589e+04
+
+DD  step 819999  vol min/aver 0.807  load imb.: force 10.3%
+
+           Step           Time         Lambda
+         820000      410.00000        0.00000
+
+Current ref_t for group Ch:    135.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.49956e+03    1.88484e+03    4.31604e+00   -9.79605e+03    1.42623e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25701e+03   -8.04925e+03   -4.71394e+04    0.00000e+00   -6.14268e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.67646e+03   -5.67503e+04    1.01932e+06    1.24038e+02   -5.60513e+04
+
+DD  step 824999  vol min/aver 0.741  load imb.: force 12.5%
+
+           Step           Time         Lambda
+         825000      412.50000        0.00000
+
+Current ref_t for group Ch:    132.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.90847e+03    1.90644e+03    4.22549e+00   -9.73642e+03    1.46738e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25713e+03   -8.05443e+03   -4.67992e+04    0.00000e+00   -6.05607e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.15144e+03   -5.64093e+04    1.02391e+06    1.10112e+02   -5.71216e+04
+
+DD  step 829999  vol min/aver 0.776  load imb.: force  9.4%
+
+           Step           Time         Lambda
+         830000      415.00000        0.00000
+
+Current ref_t for group Ch:    128.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.84140e+03    1.86648e+03    3.81349e+00   -9.74414e+03    1.46244e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25655e+03   -8.03236e+03   -4.69925e+04    0.00000e+00   -6.08514e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.99659e+03   -5.68548e+04    1.02785e+06    1.06005e+02   -5.45061e+04
+
+DD  step 834999  vol min/aver 0.828  load imb.: force  7.1%
+
+           Step           Time         Lambda
+         835000      417.50000        0.00000
+
+Current ref_t for group Ch:    124.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.80268e+03    1.87839e+03    3.24659e+00   -9.80157e+03    1.43863e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25896e+03   -8.09019e+03   -4.68328e+04    0.00000e+00   -6.08606e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.85385e+03   -5.70067e+04    1.03199e+06    1.02219e+02   -5.26246e+04
+
+DD  step 839999  vol min/aver 0.825  load imb.: force 13.0%
+
+           Step           Time         Lambda
+         840000      420.00000        0.00000
+
+Current ref_t for group Ch:    120.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.56565e+03    1.80632e+03    3.95838e+00   -9.79470e+03    1.40587e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25974e+03   -8.07740e+03   -4.72081e+04    0.00000e+00   -6.15581e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    4.15938e+03   -5.73987e+04    1.03559e+06    1.10323e+02   -5.59075e+04
+
+DD  step 844999  vol min/aver 0.722  load imb.: force  4.5%
+
+           Step           Time         Lambda
+         845000      422.50000        0.00000
+
+Current ref_t for group Ch:    117.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.72243e+03    1.75329e+03    4.11061e+00   -9.81302e+03    1.40331e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25921e+03   -8.13488e+03   -4.71374e+04    0.00000e+00   -6.14614e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.76813e+03   -5.76933e+04    1.03956e+06    9.99453e+01   -5.70422e+04
+
+DD  step 849999  vol min/aver 0.787  load imb.: force  4.3%
+
+           Step           Time         Lambda
+         850000      425.00000        0.00000
+
+Current ref_t for group Ch:    113.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.49278e+03    1.76706e+03    3.43044e+00   -9.80754e+03    1.42834e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25594e+03   -8.11875e+03   -4.70940e+04    0.00000e+00   -6.15846e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.68999e+03   -5.78946e+04    1.04343e+06    9.78726e+01   -5.64681e+04
+
+DD  step 854999  vol min/aver 0.738  load imb.: force  6.4%
+
+           Step           Time         Lambda
+         855000      427.50000        0.00000
+
+Current ref_t for group Ch:    109.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.30706e+03    1.59172e+03    4.20100e+00   -9.81710e+03    1.40559e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25816e+03   -8.13704e+03   -4.72748e+04    0.00000e+00   -6.21785e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.89887e+03   -5.82797e+04    1.04708e+06    1.03413e+02   -5.80030e+04
+
+DD  step 859999  vol min/aver 0.691  load imb.: force  8.1%
+
+           Step           Time         Lambda
+         860000      430.00000        0.00000
+
+Current ref_t for group Ch:    105.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.33299e+03    1.63300e+03    4.45654e+00   -9.83513e+03    1.41874e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.26005e+03   -8.14037e+03   -4.70325e+04    0.00000e+00   -6.18788e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.47008e+03   -5.84088e+04    1.05107e+06    9.20399e+01   -5.68909e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 864999  vol min/aver 0.743! load imb.: force  7.7%
+
+           Step           Time         Lambda
+         865000      432.50000        0.00000
+
+Current ref_t for group Ch:    102.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.37043e+03    1.64557e+03    3.68128e+00   -9.87538e+03    1.37011e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25614e+03   -8.14640e+03   -4.67672e+04    0.00000e+00   -6.16554e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.37638e+03   -5.82790e+04    1.05490e+06    8.95546e+01   -5.58190e+04
+
+DD  step 869999  vol min/aver 0.761  load imb.: force  6.6%
+
+           Step           Time         Lambda
+         870000      435.00000        0.00000
+
+Current ref_t for group Ch:     98.3
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.18508e+03    1.54091e+03    4.31664e+00   -9.85658e+03    1.41413e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25868e+03   -8.14845e+03   -4.66625e+04    0.00000e+00   -6.17818e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.48517e+03   -5.82966e+04    1.05857e+06    9.24401e+01   -5.62234e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 874999  vol min/aver 0.722! load imb.: force  6.6%
+
+           Step           Time         Lambda
+         875000      437.50000        0.00000
+
+Current ref_t for group Ch:     94.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.30647e+03    1.50255e+03    5.38437e+00   -9.86677e+03    1.37155e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25867e+03   -8.18146e+03   -4.66930e+04    0.00000e+00   -6.18140e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.12684e+03   -5.86871e+04    1.06206e+06    8.29358e+01   -5.70544e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 879999  vol min/aver 0.730! load imb.: force  5.3%
+
+           Step           Time         Lambda
+         880000      440.00000        0.00000
+
+Current ref_t for group Ch:     90.8
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.20751e+03    1.55946e+03    4.22418e+00   -9.86360e+03    1.34718e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25721e+03   -8.19340e+03   -4.69167e+04    0.00000e+00   -6.21125e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.07347e+03   -5.90390e+04    1.06528e+06    8.15203e+01   -5.56734e+04
+
+DD  step 884999  vol min/aver 0.688  load imb.: force 18.7%
+
+           Step           Time         Lambda
+         885000      442.50000        0.00000
+
+Current ref_t for group Ch:     87.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.09230e+03    1.51918e+03    3.99753e+00   -9.86302e+03    1.38253e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25978e+03   -8.17565e+03   -4.69115e+04    0.00000e+00   -6.22119e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.90312e+03   -5.93088e+04    1.06867e+06    7.70020e+01   -5.64153e+04
+
+DD  step 889999  vol min/aver 0.742  load imb.: force  6.3%
+
+           Step           Time         Lambda
+         890000      445.00000        0.00000
+
+Current ref_t for group Ch:     83.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.04516e+03    1.44232e+03    3.99774e+00   -9.90685e+03    1.37505e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25999e+03   -8.16985e+03   -4.70145e+04    0.00000e+00   -6.24847e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.90652e+03   -5.95782e+04    1.07190e+06    7.70920e+01   -5.62813e+04
+
+Writing checkpoint, step 890680 at Mon Jul  9 20:56:25 2018
+
+
+DD  step 894999  vol min/aver 0.753  load imb.: force  9.2%
+
+           Step           Time         Lambda
+         895000      447.50000        0.00000
+
+Current ref_t for group Ch:     79.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    1.14131e+03    1.38876e+03    4.61195e+00   -9.92091e+03    1.37764e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25688e+03   -8.21769e+03   -4.71111e+04    0.00000e+00   -6.25943e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.55668e+03   -6.00376e+04    1.07508e+06    6.78129e+01   -5.60438e+04
+
+DD  step 899999  vol min/aver 0.707  load imb.: force  4.4%
+
+           Step           Time         Lambda
+         900000      450.00000        0.00000
+
+Current ref_t for group Ch:     75.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.74796e+02    1.38750e+03    4.88514e+00   -9.93935e+03    1.36948e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25983e+03   -8.20781e+03   -4.71955e+04    0.00000e+00   -6.28658e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.62988e+03   -6.02359e+04    1.07813e+06    6.97546e+01   -5.56862e+04
+
+DD  step 904999  vol min/aver 0.719  load imb.: force  4.2%
+
+           Step           Time         Lambda
+         905000      452.50000        0.00000
+
+Current ref_t for group Ch:     72.1
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.89174e+02    1.34188e+03    4.44913e+00   -9.91306e+03    1.38876e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25680e+03   -8.21556e+03   -4.73847e+04    0.00000e+00   -6.30458e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.52418e+03   -6.05216e+04    1.08118e+06    6.69508e+01   -5.40813e+04
+
+DD  step 909999  vol min/aver 0.711  load imb.: force  3.2%
+
+           Step           Time         Lambda
+         910000      455.00000        0.00000
+
+Current ref_t for group Ch:     68.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.19723e+02    1.28588e+03    4.05284e+00   -9.93535e+03    1.36777e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25738e+03   -8.21073e+03   -4.67831e+04    0.00000e+00   -6.26092e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.41799e+03   -6.01912e+04    1.08489e+06    6.41344e+01   -5.58356e+04
+
+DD  step 914999  vol min/aver 0.677  load imb.: force  7.4%
+
+           Step           Time         Lambda
+         915000      457.50000        0.00000
+
+Current ref_t for group Ch:     64.6
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    9.24676e+02    1.29987e+03    4.08659e+00   -9.94212e+03    1.32593e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25669e+03   -8.22734e+03   -4.69133e+04    0.00000e+00   -6.27849e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.32857e+03   -6.04563e+04    1.08787e+06    6.17626e+01   -5.54833e+04
+
+DD  step 919999  vol min/aver 0.734  load imb.: force  7.2%
+
+           Step           Time         Lambda
+         920000      460.00000        0.00000
+
+Current ref_t for group Ch:     60.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.11189e+02    1.23593e+03    3.65270e+00   -9.96942e+03    1.33444e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25736e+03   -8.24595e+03   -4.74964e+04    0.00000e+00   -6.35839e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.29339e+03   -6.12905e+04    1.09024e+06    6.08296e+01   -5.63209e+04
+
+DD  step 924999  vol min/aver 0.728  load imb.: force  4.2%
+
+           Step           Time         Lambda
+         925000      462.50000        0.00000
+
+Current ref_t for group Ch:     57.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    8.05205e+02    1.20105e+03    3.68502e+00   -9.95842e+03    1.37884e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25970e+03   -8.25557e+03   -4.69188e+04    0.00000e+00   -6.30037e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.09967e+03   -6.09041e+04    1.09368e+06    5.56913e+01   -5.61101e+04
+
+DD  step 929999  vol min/aver 0.700  load imb.: force  5.1%
+
+           Step           Time         Lambda
+         930000      465.00000        0.00000
+
+Current ref_t for group Ch:     53.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    7.96907e+02    1.22408e+03    4.21235e+00   -9.96749e+03    1.32666e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25623e+03   -8.29882e+03   -4.71535e+04    0.00000e+00   -6.33242e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    2.04860e+03   -6.12756e+04    1.09626e+06    5.43367e+01   -5.81081e+04
+
+DD  step 934999  vol min/aver 0.750  load imb.: force  6.7%
+
+           Step           Time         Lambda
+         935000      467.50000        0.00000
+
+Current ref_t for group Ch:     49.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.96059e+02    1.10824e+03    3.32115e+00   -9.97451e+03    1.32359e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25793e+03   -8.27630e+03   -4.69036e+04    0.00000e+00   -6.32811e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.89350e+03   -6.13876e+04    1.09939e+06    5.02228e+01   -5.52619e+04
+
+DD  step 939999  vol min/aver 0.713  load imb.: force  6.1%
+
+           Step           Time         Lambda
+         940000      470.00000        0.00000
+
+Current ref_t for group Ch:     45.9
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.91755e+02    1.06671e+03    3.68166e+00   -1.00039e+04    1.32406e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25660e+03   -8.25090e+03   -4.74450e+04    0.00000e+00   -6.38703e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.74643e+03   -6.21238e+04    1.10155e+06    4.63220e+01   -5.55692e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 944999  vol min/aver 0.773! load imb.: force  8.0%
+
+           Step           Time         Lambda
+         945000      472.50000        0.00000
+
+Current ref_t for group Ch:     42.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.43716e+02    1.06282e+03    3.37750e+00   -9.98176e+03    1.33302e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25786e+03   -8.29402e+03   -4.71237e+04    0.00000e+00   -6.36144e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.63636e+03   -6.19781e+04    1.10443e+06    4.34026e+01   -5.67007e+04
+
+DD  step 949999  vol min/aver 0.732  load imb.: force  6.1%
+
+           Step           Time         Lambda
+         950000      475.00000        0.00000
+
+Current ref_t for group Ch:     38.4
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    6.15996e+02    1.00799e+03    3.36168e+00   -1.00140e+04    1.32531e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25771e+03   -8.31468e+03   -4.71345e+04    0.00000e+00   -6.37683e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.58709e+03   -6.21812e+04    1.10696e+06    4.20958e+01   -5.39112e+04
+
+DD  step 954999  vol min/aver 0.776  load imb.: force  3.6%
+
+           Step           Time         Lambda
+         955000      477.50000        0.00000
+
+Current ref_t for group Ch:     34.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.73577e+02    1.00558e+03    3.20018e+00   -1.00133e+04    1.31398e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25756e+03   -8.33630e+03   -4.70261e+04    0.00000e+00   -6.37369e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.49242e+03   -6.22445e+04    1.10961e+06    3.95848e+01   -5.66726e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 959999  vol min/aver 0.736! load imb.: force  9.0%
+
+           Step           Time         Lambda
+         960000      480.00000        0.00000
+
+Current ref_t for group Ch:     31.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.48289e+02    9.50436e+02    4.05083e+00   -1.00355e+04    1.32456e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25876e+03   -8.31396e+03   -4.72167e+04    0.00000e+00   -6.39976e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.33440e+03   -6.26632e+04    1.11197e+06    3.53935e+01   -5.61067e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 964999  vol min/aver 0.748! load imb.: force  2.8%
+
+           Step           Time         Lambda
+         965000      482.50000        0.00000
+
+Current ref_t for group Ch:     27.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.10429e+02    8.90615e+02    3.19450e+00   -1.00426e+04    1.27907e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25905e+03   -8.35459e+03   -4.67713e+04    0.00000e+00   -6.37442e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.24100e+03   -6.25032e+04    1.11475e+06    3.29161e+01   -5.70296e+04
+
+DD  load balancing is limited by minimum cell size in dimension Y
+DD  step 969999  vol min/aver 0.690! load imb.: force  7.9%
+
+           Step           Time         Lambda
+         970000      485.00000        0.00000
+
+Current ref_t for group Ch:     23.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.65874e+02    8.62978e+02    3.58717e+00   -1.00684e+04    1.30684e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25798e+03   -8.33661e+03   -4.72397e+04    0.00000e+00   -6.42634e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.13501e+03   -6.31284e+04    1.11664e+06    3.01049e+01   -5.72358e+04
+
+DD  step 974999  vol min/aver 0.684  load imb.: force  5.8%
+
+           Step           Time         Lambda
+         975000      487.50000        0.00000
+
+Current ref_t for group Ch:     19.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    4.23147e+02    8.02354e+02    3.42732e+00   -1.00848e+04    1.29040e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25770e+03   -8.36962e+03   -4.72169e+04    0.00000e+00   -6.44097e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.00336e+03   -6.34063e+04    1.11876e+06    2.66131e+01   -5.59791e+04
+
+DD  step 979999  vol min/aver 0.701  load imb.: force  5.8%
+
+           Step           Time         Lambda
+         980000      490.00000        0.00000
+
+Current ref_t for group Ch:     16.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.73545e+02    7.87395e+02    3.82540e+00   -1.00976e+04    1.28586e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25654e+03   -8.39922e+03   -4.73543e+04    0.00000e+00   -6.46569e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    9.32994e+02   -6.37240e+04    1.12070e+06    2.47466e+01   -5.68063e+04
+
+DD  step 984999  vol min/aver 0.728  load imb.: force  6.2%
+
+           Step           Time         Lambda
+         985000      492.50000        0.00000
+
+Current ref_t for group Ch:     12.2
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.37798e+02    7.28817e+02    2.90173e+00   -1.01086e+04    1.28162e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25766e+03   -8.41671e+03   -4.72147e+04    0.00000e+00   -6.46466e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    7.43230e+02   -6.39033e+04    1.12270e+06    1.97133e+01   -5.59180e+04
+
+DD  step 989999  vol min/aver 0.689  load imb.: force  4.4%
+
+           Step           Time         Lambda
+         990000      495.00000        0.00000
+
+Current ref_t for group Ch:      8.5
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.23746e+02    6.76352e+02    2.83679e+00   -1.01221e+04    1.26260e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25723e+03   -8.42259e+03   -4.74837e+04    0.00000e+00   -6.50200e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    6.13159e+02   -6.44069e+04    1.12418e+06    1.62633e+01   -5.65994e+04
+
+DD  step 994999  vol min/aver 0.695  load imb.: force 11.5%
+
+           Step           Time         Lambda
+         995000      497.50000        0.00000
+
+Current ref_t for group Ch:      4.7
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    3.16681e+02    6.26634e+02    2.71003e+00   -1.01381e+04    1.25208e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25664e+03   -8.43611e+03   -4.73896e+04    0.00000e+00   -6.50223e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    5.13019e+02   -6.45093e+04    1.12598e+06    1.36072e+01   -5.76745e+04
+
+DD  step 999999  vol min/aver 0.729  load imb.: force  3.4%
+
+           Step           Time         Lambda
+        1000000      500.00000        0.00000
+
+Writing checkpoint, step 1000000 at Mon Jul  9 21:00:07 2018
+
+
+Current ref_t for group Ch:      1.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    2.65184e+02    5.84035e+02    2.87216e+00   -1.01455e+04    1.26302e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25770e+03   -8.46125e+03   -4.75354e+04    0.00000e+00   -6.52848e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    3.68526e+02   -6.49162e+04    1.12742e+06    9.77473e+00   -5.78323e+04
+
+	<======  ###############  ==>
+	<====  A V E R A G E S  ====>
+	<==  ###############  ======>
+
+	Statistics over 1000001 steps using 10001 frames
+
+Current ref_t for group Ch:      1.0
+   Energies (kJ/mol)
+           Bond          Angle    Proper Dih. Ryckaert-Bell.          LJ-14
+    5.13293e+03    3.51613e+03    5.01650e+00   -9.25443e+03    1.61837e+03
+     Coulomb-14        LJ (SR)   Coulomb (SR) Position Rest.      Potential
+   -1.25814e+03   -7.74849e+03   -4.71469e+04    0.00000e+00   -5.51355e+04
+    Kinetic En.   Total Energy  Conserved En.    Temperature Pressure (bar)
+    1.04173e+04   -4.47182e+04    6.30504e+05    2.76307e+02   -5.49725e+04
+
+   Total Virial (kJ/mol)
+    5.21462e+04    1.77431e+03   -1.02057e+03
+    1.77431e+03    5.27129e+04    5.91584e+02
+   -1.02057e+03    5.91584e+02    5.09092e+04
+
+   Pressure (bar)
+   -5.52370e+04   -2.01776e+03    1.14319e+03
+   -2.01776e+03   -5.59394e+04   -6.94049e+02
+    1.14319e+03   -6.94049e+02   -5.37410e+04
+
+  Epot (kJ/mol)        Coul-SR          LJ-SR        Coul-14          LJ-14   
+          Ch-Ch    1.12417e+05   -2.59526e+03    3.46706e+02    1.58135e+03
+          Ch-Ac   -2.40309e+05   -4.73182e+03    0.00000e+00    0.00000e+00
+         Ch-PDA    2.51773e+05    0.00000e+00    0.00000e+00    0.00000e+00
+         Ch-NDA   -2.58845e+05    0.00000e+00    0.00000e+00    0.00000e+00
+          Ac-Ac    1.10264e+05   -4.21405e+02   -1.60484e+03    3.70197e+01
+         Ac-PDA   -2.63130e+05    0.00000e+00    0.00000e+00    0.00000e+00
+         Ac-NDA    2.40683e+05    0.00000e+00    0.00000e+00    0.00000e+00
+        PDA-PDA    0.00000e+00    0.00000e+00    0.00000e+00    0.00000e+00
+        PDA-NDA    0.00000e+00    0.00000e+00    0.00000e+00    0.00000e+00
+        NDA-NDA    0.00000e+00    0.00000e+00    0.00000e+00    0.00000e+00
+
+           T-Ch           T-Ac          T-PDA          T-NDA
+    3.66875e+02    4.60492e+00    0.00000e+00    0.00000e+00
+
+
+	M E G A - F L O P S   A C C O U N T I N G
+
+ NB=Group-cutoff nonbonded kernels    NxN=N-by-N cluster Verlet kernels
+ RF=Reaction-Field  VdW=Van der Waals  QSTab=quadratic-spline table
+ W3=SPC/TIP3p  W4=TIP4p (single or pairs)
+ V&F=Potential and force  V=Potential only  F=Force only
+
+ Computing:                               M-Number         M-Flops  % Flops
+-----------------------------------------------------------------------------
+ NB Elec. [V&F]                      198742.948192      198742.948     0.2
+ NB Elec. [F]                      17876483.743644    17876483.744    20.1
+ NB VdW & Elec. [V&F]                804688.784898      804688.785     0.9
+ NB VdW & Elec. [F]                67066911.254006    67066911.254    75.3
+ 1,4 nonbonded interactions            5832.005832      524880.525     0.6
+ NS-Pairs                             12274.409805      257762.606     0.3
+ Reset In Box                            29.701188          89.104     0.0
+ CG-CoM                                  81.006480         243.019     0.0
+ Bonds                                 2808.002808      165672.166     0.2
+ Angles                                4968.004968      834624.835     0.9
+ Propers                                108.000108       24732.025     0.0
+ RB-Dihedrals                          5184.005184     1280449.280     1.4
+ Pos. Restr.                            216.000216       10800.011     0.0
+ Virial                                  46.804680         842.484     0.0
+ Stop-CM                                  0.654480           6.545     0.0
+ Calc-Ekin                              324.006480        8748.175     0.0
+-----------------------------------------------------------------------------
+ Total                                                89055677.505   100.0
+-----------------------------------------------------------------------------
+
+
+    D O M A I N   D E C O M P O S I T I O N   S T A T I S T I C S
+
+ av. #atoms communicated per step for force:  2 x 33363.3
+
+ Average load imbalance: 6.8 %
+ Part of the total run time spent waiting due to load imbalance: 5.6 %
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 0 % Y 0 % Z 0 %
+
+NOTE: 5.6 % of the available CPU time was lost due to load imbalance
+      in the domain decomposition.
+
+
+     R E A L   C Y C L E   A N D   T I M E   A C C O U N T I N G
+
+On 32 MPI ranks
+
+ Computing:          Num   Num      Call    Wall time         Giga-Cycles
+                     Ranks Threads  Count      (s)         total sum    %
+-----------------------------------------------------------------------------
+ Domain decomp.        32    1      25001      20.752       1527.373   1.0
+ DD comm. load         32    1      25000       0.231         17.038   0.0
+ DD comm. bounds       32    1      25000       0.468         34.438   0.0
+ Neighbor search       32    1      25001      43.817       3224.903   2.2
+ Comm. coord.          32    1    1000001      52.283       3848.032   2.6
+ Force                 32    1    1000001    1706.957     125631.463  84.4
+ Wait + Comm. F        32    1    1000001     176.006      12953.993   8.7
+ Write traj.           32    1        203       0.028          2.070   0.0
+ Update                32    1    1000001      14.284       1051.282   0.7
+ Comm. energies        32    1      50001       2.221        163.452   0.1
+ Rest                                           5.852        430.713   0.3
+-----------------------------------------------------------------------------
+ Total                                       2022.900     148884.756 100.0
+-----------------------------------------------------------------------------
+
+               Core t (s)   Wall t (s)        (%)
+       Time:    64607.290     2022.900     3193.8
+                         33:42
+                 (ns/day)    (hour/ns)
+Performance:       21.355        1.124
+Finished mdrun on rank 0 Mon Jul  9 21:00:07 2018

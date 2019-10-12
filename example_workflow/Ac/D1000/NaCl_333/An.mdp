@@ -1,0 +1,60 @@
+	; RUN CONTROL PARAMETERS
+;constraints              = all-bonds
+constraints              = none
+integrator               = md
+dt                       = 0.0005
+nsteps                   = 1000000 ; 2.1ns
+;define                   = -DPOSRES 
+
+; OUTPUT CONTROL OPTIONS
+nstcomm                  = 5000
+nstvout                  = 0
+nstfout                  = 0
+nstlog                   = 5000
+nstenergy                = 5000
+nstxtcout                = 5000
+
+; NEIGHBORSEARCHING PARAMETERS
+cutoff-scheme            = group
+nstlist                  = 40
+ns_type                  = grid  
+pbc                      = xyz
+periodic_molecules       = no
+rlist                    = 1.3
+rcoulomb                 = 1.3
+rvdw                     = 1.3
+vdw-modifier             = None
+;rvdw_switch              = 1.2
+;rlistlong                = 1.5
+
+; OPTIONS FOR ELECTROSTATICS AND VDW
+coulombtype              = user
+;fourierspacing           = 0.10
+;pme_order                = 4
+;ewald_rtol               = 1e-05
+;ewald_geometry           = 3d
+;table-extension          = 3
+epsilon_r                = 1.6
+
+; OPTIONS FOR WEAK COUPLING ALGORITHMS
+tcoupl                   = v-rescale
+tc-grps	                 = Ch Ac PDA NDA
+tau_t                    = 0 0.5 0 0
+ref_t                    = 1 850 0 0
+annealing                = no single no no
+annealing_npoints        = 0 4 0 0
+annealing_time           = 0    100  400 500 
+annealing_temp           = 850 850 450 1 
+Pcoupl                   = no
+
+; Coupling electrostatics for dummies
+freezegrps               = PDA NDA
+freezedim                = X Y Z X Y Z
+energygrps               = Ch Ac PDA NDA
+energygrp-table          = Ch NDA  Ac PDA  Ac NDA  Ch PDA  NDA PDA  NDA NDA  PDA PDA
+energygrp-excl           = NDA PDA  NDA NDA  PDA PDA
+
+; GENERATE VELOCITIES FOR STARTUP RUN
+gen_vel                  = no
+gen_temp                 = 850
+gen_seed                 = 473529

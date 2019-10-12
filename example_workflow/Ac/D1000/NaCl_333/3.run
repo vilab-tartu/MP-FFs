@@ -1,0 +1,40 @@
+#!/bin/bash
+
+#SBATCH --job-name 3333NaCl
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 32
+#SBATCH -t 10:59:00
+
+module load gromacs/5.1.4
+module load openmpi-1.6.5
+
+cp table_gen.py table_10.py
+sed -i "s/SED_intstr_SED/8.0/g" ./table_10.py
+python table_10.py
+
+gmx grompp -f An.mdp -c NVT.gro -p topol.top -n index.ndx -o An -maxwarn 9
+gmx mdrun -ntmpi 32 -pin on -deffnm An -table table
+gmx grompp -f Cat.mdp -c An.gro -p topol.top -n index.ndx -o Cat -maxwarn 9
+gmx mdrun -ntmpi 32 -pin on -deffnm Cat -table table
+
+cp table_gen.py table_10.py
+sed -i "s/SED_intstr_SED/6.0/g" ./table_10.py
+python table_10.py
+
+gmx grompp -f An.mdp -c Cat.gro -p topol.top -n index.ndx -o An -maxwarn 9
+gmx mdrun -ntmpi 32 -pin on -deffnm An -table table
+gmx grompp -f Cat.mdp -c An.gro -p topol.top -n index.ndx -o Cat -maxwarn 9
+gmx mdrun -ntmpi 32 -pin on -deffnm Cat -table table
+
+cp table_gen.py table_10.py
+sed -i "s/SED_intstr_SED/4.0/g" ./table_10.py
+python table_10.py
+
+gmx grompp -f An.mdp -c Cat.gro -p topol.top -n index.ndx -o An -maxwarn 9
+gmx mdrun -ntmpi 32 -pin on -deffnm An -table table
+gmx grompp -f Cat.mdp -c An.gro -p topol.top -n index.ndx -o Cat -maxwarn 9
+gmx mdrun -ntmpi 32 -pin on -deffnm Cat -table table
+
+
+
+
