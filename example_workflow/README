@@ -18,7 +18,8 @@ unwells script to remove potential wells, GROMACS to create MD input files, and 
 These run files are configured to submit the MD input files and launch MD simulations in the SLURM high performance computing environment.
 In principle, all code (except headers and module loading) can be copied into sh scripts or other HPC environment submit file templates to carry out simulations in any environment.
 
-Example results are shown in NaCl_333 and CsCl_332 folders.
+Example results are shown in NaCl_333 and CsCl_332 folders. 
+NB 4th step trajectories (melt.xtc) are compressed due to GitHub restrictions on file uploads. Unpack them if they are needed.
 
 
 # Analysis #
@@ -28,7 +29,8 @@ msd.sh script is used by analye_traj.py script to calculate mean square deviatio
 Required initializon: root path of results to analyze, lists of systems to analyze (anion names, initial packing densities, subsystems such as NaCl_333, CsCl_332, reference melting points).
 If analysis is run for some systems for multiple times, then it is wise to comment out the line that calls for msd.sh script with os.system module.
 
-Example is shown with Choline Acetate, NaCl_333 and CsCl_332 systems with D1000 initial packing density (1.0 kg/dm3). 
+Example is shown with Choline Acetate, NaCl_333 and CsCl_332 systems with D1000 initial packing density (1.0 kg/dm3).
+NB Example MSD results folder (Ac_D1000) is compressed due to GitHub restrictions on file uploads. Unpack it to reproduce analysis. msd.sh script also requires access to unpacked melt.xtc files.
 
 Outputs include: 1p (shows anion name, predicted MP (K), average of predictions for different systems among the same anion(K))
 1psys (shows the system which was used for the final MP prediction, i.e. the system with highes MP that had sufficient regression fits, etc)
