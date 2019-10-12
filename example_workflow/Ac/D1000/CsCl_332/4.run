@@ -1,0 +1,16 @@
+#!/bin/bash
+
+#SBATCH --job-name 4332CsCl
+#SBATCH --nodes 1
+#SBATCH --ntasks-per-node 12
+#SBATCH -t 144:00:00
+
+module load gromacs/5.1.4
+module load openmpi-1.6.5
+
+
+gmx mdrun -ntmpi 12 -deffnm melt
+
+
+
+

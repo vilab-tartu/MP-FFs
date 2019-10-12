@@ -1,0 +1,77 @@
+                   :-) GROMACS - gmx mdrun, VERSION 5.1.4 (-:
+
+                            GROMACS is written by:
+     Emile Apol      Rossen Apostolov  Herman J.C. Berendsen    Par Bjelkmar   
+ Aldert van Buuren   Rudi van Drunen     Anton Feenstra   Sebastian Fritsch 
+  Gerrit Groenhof   Christoph Junghans   Anca Hamuraru    Vincent Hindriksen
+ Dimitrios Karkoulis    Peter Kasson        Jiri Kraus      Carsten Kutzner  
+    Per Larsson      Justin A. Lemkul   Magnus Lundborg   Pieter Meulenhoff 
+   Erik Marklund      Teemu Murtola       Szilard Pall       Sander Pronk   
+   Roland Schulz     Alexey Shvetsov     Michael Shirts     Alfons Sijbers  
+   Peter Tieleman    Teemu Virolainen  Christian Wennberg    Maarten Wolf   
+                           and the project leaders:
+        Mark Abraham, Berk Hess, Erik Lindahl, and David van der Spoel
+
+Copyright (c) 1991-2000, University of Groningen, The Netherlands.
+Copyright (c) 2001-2015, The GROMACS development team at
+Uppsala University, Stockholm University and
+the Royal Institute of Technology, Sweden.
+check out http://www.gromacs.org for more information.
+
+GROMACS is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License
+as published by the Free Software Foundation; either version 2.1
+of the License, or (at your option) any later version.
+
+GROMACS:      gmx mdrun, VERSION 5.1.4
+Executable:   /storage/software/gromacs-5.1.4/bin/gmx
+Data prefix:  /storage/software/gromacs-5.1.4
+Command line:
+  gmx mdrun -ntmpi 12 -deffnm melt
+
+
+Back Off! I just backed up melt.log to ./#melt.log.1#
+
+Number of logical cores detected (40) does not match the number reported by OpenMP (24).
+Consider setting the launch configuration manually!
+
+Running on 1 node with total 20 cores, 40 logical cores
+Hardware detected:
+  CPU info:
+    Vendor: GenuineIntel
+    Brand:  Intel(R) Xeon(R) CPU E5-2660 v2 @ 2.20GHz
+    SIMD instructions most likely to fit this hardware: AVX_256
+    SIMD instructions selected at GROMACS compile time: AVX_256
+
+Reading file melt.tpr, VERSION 5.1.4 (single precision)
+
+Non-default thread affinity set, disabling internal thread affinity
+Using 12 MPI threads
+Using 3 OpenMP threads per tMPI thread
+
+
+Back Off! I just backed up melt.edr to ./#melt.edr.1#
+starting mdrun 'Atomistic model of ChTFSI'
+65000000 steps,  32500.0 ps.
+
+NOTE: Turning on dynamic load balancing
+
+
+Writing final coordinates.
+
+ Average load imbalance: 29.3 %
+ Part of the total run time spent waiting due to load imbalance: 10.9 %
+ Steps where the load balancing was limited by -rdd, -rcon and/or -dds: X 1 % Y 1 %
+
+NOTE: 10.9 % of the available CPU time was lost due to load imbalance
+      in the domain decomposition.
+
+
+               Core t (s)   Wall t (s)        (%)
+       Time:  3173617.013   127571.820     2487.7
+                         1d11h26:11
+                 (ns/day)    (hour/ns)
+Performance:       22.011        1.090
+
+gcq#401: "It's easy to remember: a half a kT is equal to five fourths of a kJ/mol." (Anders Gabrielsson)
+

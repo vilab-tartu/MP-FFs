@@ -1,0 +1,19 @@
+#
+# Simulationbox for IL
+#
+
+tolerance 2.1
+filetype pdb
+output packmol.pdb
+seed 378405
+add_box_sides 
+
+structure ./top/Ac.pdb 
+  number 96
+  inside box 0.0 0.0 0.0 29.6319 29.6319 29.6319
+end structure
+
+structure ./top/Ch.pdb 
+  number 96
+  inside box 0.0 0.0 0.0 29.6319 29.6319 29.6319
+end structure

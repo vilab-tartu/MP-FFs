@@ -1,0 +1,12 @@
+#include "ils_param_Ch.itp"
+#include "ils_nb_Cl.itp"
+#include "Ch_0.8samb.itp"
+#include "0.8Cl.itp"
+
+[ system ]
+Choline Chloride
+
+[ molecules ]
+Choline		512
+Chloride	512
+

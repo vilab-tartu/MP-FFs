@@ -1,0 +1,5 @@
+[ atomtypes ]
+
+;  name  at.num      mass        charge   ptype       sigma     epsilon
+   Cl        17      35.45300    -0.8       A       4.41724e-01  4.92833e-01
+

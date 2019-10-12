@@ -1,0 +1,20 @@
+; RUN CONTROL PARAMETERS
+integrator               = steep
+dt                       = 0.001
+nsteps                   = 10000
+comm-mode                = Linear
+;define                   = -DPOSRES
+
+; OUTPUT CONTROL OPTIONS 
+nstcomm                  = 500
+nstxout                  = 0
+nstvout                  = 0
+nstfout                  = 0
+nstlog                   = 500
+nstenergy                = 500
+nstxout-compressed       = 500
+compressed-x-precision   = 500
+
+; Coupling electrostatics for dummies
+cutoff-scheme            = group
+coulombtype              = PME
