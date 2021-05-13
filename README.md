@@ -1,6 +1,8 @@
 ## Citation
 If you find the code useful, please cite:
+
 [1] DOI for that repository: https://doi.org/10.5281/zenodo.4755961
+
 [2] K. Karu, F. Elhi, K. Põhako-Esko, V. Ivaništšev, Predicting Melting Points of Biofriendly Choline-Based Ionic Liquids with Molecular Dynamics, Appl. Sci. 9 (2019) 5367. https://doi.org/10.3390/app9245367.
 
 ## Description
